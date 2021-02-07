@@ -42,3 +42,5 @@ insert message of what you changed or did inside the quotes)
 
 (if someone added a file, we can do git pull to get the file on our local repo)
 
+
+-- testing if works 
