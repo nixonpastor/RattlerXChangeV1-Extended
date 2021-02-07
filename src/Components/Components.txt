@@ -1,0 +1,2 @@
+This folder is to put the components (Navbar, Cards, Footer, ETC)
+(Can include CSS)
