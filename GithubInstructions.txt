@@ -34,3 +34,6 @@ insert message of what you changed or did inside the quotes)
 8. start from step 2 when making more changes
 
 (if someone added a file, we can do git pull to get the file on our local repo)
+
+
+-
