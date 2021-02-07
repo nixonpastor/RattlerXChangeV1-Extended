@@ -9,31 +9,36 @@ and not on desktop or anywhere else.
 ex this is mine in the terminal for VSC(at the bottom of VSC):
 RattlerXChangeV1-Extended nixonpastor$ )
 
-2. git pull (do this as the first thing when you open the
+2. git pull 
+(do this as the first thing when you open the
 project BEFORE coding or making changes to files
 to get most current version of project)
 
-3. git status (Checks the status of the files if modified and gives you the 
+3. git status 
+(Checks the status of the files if modified and gives you the 
 files that have not been tracked by git, visual studio code terminal should show
 files in red that were add/changed but not saved to the repo )
 
-4. git add . (Adds all the files that were NOT tracked to be tracked, 
+4. git add . 
+(Adds all the files that were NOT tracked to be tracked, 
 Saves the changes) 
 OR
-git add file.js (adding specific files to save the changes, 
+git add file.js 
+(adding specific files to save the changes, 
 file.js is just an example of file)
 
-5. git status (this step is to just check if the file/files you added were actually
+5. git status 
+(this step is to just check if the file/files you added were actually
 saved, should appear as green on visual studio terminal)
 
-6. git commit -m "MESSAGE GOES HERE" (commits the changes you made and please 
+6. git commit -m "MESSAGE GOES HERE" 
+(commits the changes you made and please 
 insert message of what you changed or did inside the quotes)
 
-7. git push (pushes/sends the files you changed to the repository in github)
+7. git push 
+(pushes/sends the files you changed to the repository in github)
 
 8. start from step 2 when making more changes
 
 (if someone added a file, we can do git pull to get the file on our local repo)
 
-
--
