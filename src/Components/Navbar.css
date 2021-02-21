@@ -1,0 +1,29 @@
+.navbar {
+  background-color: #235789;
+  display: flex;
+}
+
+.LinkBox {
+  display: flex;
+  list-style-type: none;
+  width: 100%;
+}
+
+.RattlerLogo {
+  justify-content: left;
+  padding-right: 30px;
+}
+
+.NavIcons {
+  display: flex;
+}
+
+.CategoryLinks {
+  display: flex;
+  padding-right: 15px;
+}
+
+.NavbarRightContainer {
+  display: flex;
+  width: 100%;
+}
