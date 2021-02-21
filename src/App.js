@@ -7,11 +7,12 @@ import Apparel from "./Components/Apparel";
 import Wishlist from "./Components/Wishlist";
 import Profile from "./Components/Profile";
 import Electronics from "./Components/Electronics";
+import Navbar from "./Components/ Navbar";
 
 function App() {
   return (
     <Router>
-      {/*Navbar */}
+      <Navbar />
       <Route path="/" exact component={Home} />
       <Route path="/books" exact component={Books} />
       <Route path="/dormdecor" exact component={DormDecor} />

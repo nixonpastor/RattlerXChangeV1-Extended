@@ -1,26 +1,33 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
-export default class Navbar extends Component {
-
-  render() {
-    return (
-      <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
-        <Link to="/" className="navbar-brand"> Category</Link>
-        <div className="collpase navbar-collapse">
-        <ul className="navbar-nav mr-auto">
-          <li className="navbar-item">
-          <Link to="/" className="nav-link">Electroncis</Link>
+function Navbar() {
+  return (
+    <nav>
+      <Link to="/"> Home</Link>
+      <div>
+        <ul>
+          <li>
+            <Link to="/electronics">Electronics</Link>
           </li>
-          <li className="navbar-item">
-          <Link to="/create" className="nav-link">Dorm Decor</Link>
+          <li>
+            <Link to="/dormdecor">Dorm Decor</Link>
           </li>
-          <li className="navbar-item">
-          <Link to="/user" className="nav-link">Books</Link>
+          <li>
+            <Link to="/books">Books</Link>
+          </li>
+          <li>
+            <Link to="/apparel">Apparel</Link>
+          </li>
+          <li>
+            <Link to="/wishlist">Wishlist</Link>
+          </li>
+          <li>
+            <Link to="/profile">My Profile</Link>
           </li>
         </ul>
-        </div>
-      </nav>
-    );
-  }
+      </div>
+    </nav>
+  );
 }
+
+export default Navbar;
