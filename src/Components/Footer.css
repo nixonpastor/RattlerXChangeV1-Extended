@@ -1,0 +1,14 @@
+.footer{
+    background-color: #003466;
+    height: 40px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+
+
+}
+
+.footerTitle{
+    color: #f2bf49;
+    text-align: center;
+}

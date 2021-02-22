@@ -1,0 +1,22 @@
+.screenTitle{
+    text-align: center;
+}
+
+.sortAndSearch{
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.searchTerm{
+
+    height: 35px;
+    width: 800px;
+
+}
+
+.submitButton{
+    height: 41px;
+    width: 140px;
+}
