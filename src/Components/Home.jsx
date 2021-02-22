@@ -1,5 +1,11 @@
+import CardRender from "./CardRender";
 function Home() {
-  return <h1>Welcome to Home Page</h1>;
+  return (
+    <div>
+      <h1>Welcome to Home Page</h1>
+      <CardRender />
+    </div>
+  );
 }
 
 export default Home;
