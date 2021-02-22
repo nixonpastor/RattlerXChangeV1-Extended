@@ -1,9 +1,7 @@
 import Card from "./Card";
 
 function CardRender() {
-  return (
-    <Card src="../public/logo192.png" text="product name" label="price/value" />
-  );
+  return <Card src="logo192.png" text="product name" value="price/value" />;
 }
 
 export default CardRender;

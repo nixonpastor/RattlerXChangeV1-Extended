@@ -1,13 +1,15 @@
+import "./Card.css";
+
 function Card(props) {
   return (
-    <div>
-      <figure label={props.value}>
-        <img alt="product" src={props.src} />
+    <li className="CardContainer">
+      <figure className="PriceLabel" data-category={props.value}>
+        <img className="image" alt="product" src={props.src} />
       </figure>
-      <div>
+      <div className="productTitle">
         <h1>{props.text}</h1>
       </div>
-    </div>
+    </li>
   );
 }
 
