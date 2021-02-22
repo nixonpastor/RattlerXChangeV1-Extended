@@ -6,31 +6,45 @@ function Navbar() {
     <nav className="navbar">
       <ul className="LinkBox">
         <div className="RattlerLogo">
-          <li>
-            <Link to="/">Home</Link>
+          <li className="RattlerBox">
+            <Link to="/" className="RattlerLink">
+              Rattler XChange
+            </Link>
           </li>
         </div>
         <div className="NavbarRightContainer">
           <div className="CategoryLinks">
-            <li>
-              <Link to="/electronics">Electronics</Link>
+            <li className="link">
+              <Link to="/electronics" className="links">
+                Electronics
+              </Link>
             </li>
-            <li>
-              <Link to="/dormdecor">Dorm Decor</Link>
+            <li className="link">
+              <Link to="/dormdecor" className="links">
+                Decor
+              </Link>
             </li>
-            <li>
-              <Link to="/books">Books</Link>
+            <li className="link">
+              <Link to="/books" className="links">
+                Books
+              </Link>
             </li>
-            <li>
-              <Link to="/apparel">Apparel</Link>
+            <li className="link">
+              <Link to="/apparel" className="links">
+                Apparel
+              </Link>
             </li>
           </div>
           <div className="NavIcons">
-            <li>
-              <Link to="/wishlist">Wishlist</Link>
+            <li className="link">
+              <Link to="/wishlist" className="icon">
+                <i className="fas fa-heart"></i>
+              </Link>
             </li>
-            <li>
-              <Link to="/profile">My Profile</Link>
+            <li className="link">
+              <Link to="/profile" className="icon">
+                <i class="fas fa-user-circle"></i>
+              </Link>
             </li>
           </div>
         </div>

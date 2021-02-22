@@ -1,6 +1,13 @@
 .navbar {
-  background-color: #235789;
+  background-color: #003466;
   display: flex;
+  position: sticky;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  z-index: 999;
+  height: 80px;
+  font-size: 1.2rem;
 }
 
 .LinkBox {
@@ -16,14 +23,63 @@
 
 .NavIcons {
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .CategoryLinks {
   display: flex;
   padding-right: 15px;
+  margin-left: 300px;
 }
 
 .NavbarRightContainer {
   display: flex;
   width: 100%;
+  justify-content: center;
+  align-items: right;
+  margin-left: 80px;
+}
+
+.link {
+  padding: 10px;
+}
+
+.links {
+  color: white;
+  text-decoration: none;
+}
+
+.links:hover {
+  border-bottom: 3px solid white;
+}
+
+.icon {
+  color: white;
+  font-size: 1.2rem;
+  justify-content: center;
+  align-items: center;
+  padding-left: 10px;
+}
+
+.icon:hover {
+  color: #f2bf49;
+}
+
+.profile {
+  color: white;
+}
+
+.RattlerLink {
+  color: white;
+  text-decoration: none;
+}
+
+.RattlerLink:hover {
+  border-bottom: 3px solid white;
+}
+
+.RattlerBox {
+  padding: 10px;
+  width: 200px;
 }
