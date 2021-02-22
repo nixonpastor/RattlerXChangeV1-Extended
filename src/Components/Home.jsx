@@ -3,7 +3,13 @@ import "./Card.css";
 function Home() {
   return (
     <div>
-      <h1>Welcome to Home Page</h1>
+      <h1
+        style={{
+          textAlign: "center",
+        }}
+      >
+        Welcome to Main Menu
+      </h1>
       <ul className="CardsContainer">
         <CardRender />
         <CardRender />
