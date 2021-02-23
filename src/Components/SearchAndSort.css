@@ -1,22 +1,23 @@
-.screenTitle{
-    text-align: center;
+.screenTitle {
+  text-align: center;
 }
 
-.sortAndSearch{
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.sortAndSearch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.searchTerm{
-
-    height: 35px;
-    width: 800px;
-
+.searchTerm {
+  height: 35px;
+  width: 800px;
 }
 
-.submitButton{
-    height: 41px;
-    width: 140px;
+.submitButton {
+  height: 41px;
+  width: 140px;
+}
+
+li {
+  list-style-type: none;
 }

@@ -1,14 +1,11 @@
-.footer{
-    background-color: #003466;
-    height: 40px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-
-
+.footer {
+  background-color: #003466;
+  margin-top: auto;
+  height: 80px;
 }
 
-.footerTitle{
-    color: #f2bf49;
-    text-align: center;
+.footerTitle {
+  color: white;
+  text-align: center;
+  padding-top: 20px;
 }

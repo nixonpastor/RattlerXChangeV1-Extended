@@ -8,7 +8,6 @@ import Wishlist from "./Components/Wishlist";
 import Profile from "./Components/Profile";
 import Electronics from "./Components/Electronics";
 import Navbar from "./Components/ Navbar";
-import Footer from "./Components/Footer";
 
 function App() {
   return (
@@ -23,7 +22,6 @@ function App() {
       <Route path="/wishlist" exact component={Wishlist} />
       {/* <Route path="/editprofile" exact component={EditProfile} /> 
      <Route path="/addproduct" exact component={AddProduct} />  */}
-      <Footer />
     </Router>
   );
 }
