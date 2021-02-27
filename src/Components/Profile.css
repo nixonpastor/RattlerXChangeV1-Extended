@@ -2,6 +2,23 @@
     border-radius: 10px;
 }
 
-.profileTag{
-    align-self: center;
+.tag{
+    border-bottom: black 10px;
+    margin-left: 73px;
+}
+
+.profilePic{
+    margin-left: 73px;
+}
+
+.Name{
+    margin-left: 73px;
+}
+
+.Email{
+    margin-left: 73px;
+}
+
+.productsListed{
+    margin-left: 73px;
 }
