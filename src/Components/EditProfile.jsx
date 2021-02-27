@@ -1,6 +1,7 @@
 
 import Footer from "./Footer";
-import "./EditProfile.css"
+import "./EditProfile.css";
+
 function EditProfile() {
   return (
     <div>

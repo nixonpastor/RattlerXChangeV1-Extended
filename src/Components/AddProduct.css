@@ -1,0 +1,37 @@
+ h2{
+    color: white;
+    text-align: center;
+}
+
+.main{
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.addImage{
+    float: left;
+    width: 50%;
+}
+
+.addImage button{
+    text-align: center;
+    margin-left: 100px;
+    padding: 100px 100px;
+    margin-top: 15px;
+    background-color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.productLabels label{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-left: 30px;
+  flex-direction: row;
+  line-height: 26px;
+  margin-bottom: 10px;
+  justify-content: flex-end;
+}
+
