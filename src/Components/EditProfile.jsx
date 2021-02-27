@@ -1,9 +1,6 @@
 import Footer from "./Footer";
 import "./EditProfile.css";
-<<<<<<< HEAD
-=======
 import "./Pages.css";
->>>>>>> d77af095233420b4f5a69415dda05116f9dddf7d
 
 function EditProfile() {
   return (
