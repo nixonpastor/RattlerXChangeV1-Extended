@@ -1,4 +1,4 @@
-* PENDING: Learn how to make and merge BRANCHES *
+* PENDING: Learn how to make and merge BRANCHESgit  *
 * we could technically work on the master branch but i'll look into it * 
 
 ORDER of git
@@ -50,3 +50,8 @@ insert message of what you changed or did inside the quotes)
 
 Test after node install 
 --Hello world!
+
+Test after node install JZ
+--Hello there
+
+Add check
