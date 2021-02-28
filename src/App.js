@@ -10,6 +10,7 @@ import Electronics from "./Components/Electronics";
 import Navbar from "./Components/ Navbar";
 import EditProfile from "./Components/EditProfile";
 import AddProduct from "./Components/AddProduct";
+import EditProduct from "./Components/EditProduct";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
       <Route path="/wishlist" exact component={Wishlist} />
       <Route path="/editprofile" exact component={EditProfile} /> 
       <Route path="/addproduct" exact component={AddProduct} />
+      <Route path="/editproduct" exact component={EditProduct} />
     </Router>
   );
 }
