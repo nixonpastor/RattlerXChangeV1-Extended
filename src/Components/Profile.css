@@ -1,5 +1,10 @@
+.title{
+    align-items: center;
+}
+
 .userInfo{
     border-radius: 10px;
+    text-decoration:underline;
 }
 
 .tag{
@@ -13,6 +18,7 @@
 
 .Name{
     margin-left: 73px;
+
 }
 
 .Email{

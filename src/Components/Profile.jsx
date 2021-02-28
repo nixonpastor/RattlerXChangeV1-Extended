@@ -5,7 +5,7 @@ import "./Profile.css"
 function Profile(props) {
   return (
     <div className = "ProfilePage">
-      <h1>Welcome to Profile Page</h1>
+      <h1 className = "title">Welcome to Profile Page</h1>
       <div className = "userInfo">
         <div className = "ProfileTag">
           <b className = "tag">
