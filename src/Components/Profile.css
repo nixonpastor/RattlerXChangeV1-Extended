@@ -5,26 +5,30 @@
 .userInfo{
     border-radius: 10px;
     text-decoration:underline;
+    margin-left: 73px;
 }
 
 .tag{
     border-bottom: black 10px;
-    margin-left: 73px;
 }
 
 .profilePic{
-    margin-left: 73px;
+
 }
 
 .Name{
-    margin-left: 73px;
+
 
 }
 
 .Email{
-    margin-left: 73px;
+
 }
 
 .productsListed{
-    margin-left: 73px;
+
+}
+
+#img{
+    background-color: #f2bf49;
 }
