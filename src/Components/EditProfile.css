@@ -23,7 +23,7 @@
     text-align: center;
 }
 
-input{
+.EditProfileInput{
     height: 30px;
     flex: 0 0 190px;
     margin-left: 70px;

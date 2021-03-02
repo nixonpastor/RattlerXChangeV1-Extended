@@ -15,6 +15,7 @@ function EditProfile() {
                 type="text"
                 name="Enter First name"
                 placeholder="Enter First name"
+                className = "EditProfileInput"
               />
             </label>
             <label>
@@ -23,6 +24,7 @@ function EditProfile() {
                 type="text"
                 name="Enter Last name"
                 placeholder="Enter Last name"
+                className = "EditProfileInput"
               />
             </label>
             <label>
@@ -31,6 +33,7 @@ function EditProfile() {
                 type="text"
                 name="Enter Phone Number"
                 placeholder="Enter Phone Number"
+                className = "EditProfileInput"
               />
             </label>
             <label>
@@ -39,6 +42,7 @@ function EditProfile() {
                 type="text"
                 name="Enter Email Address"
                 placeholder="Enter Email Address"
+                className = "EditProfileInput"
               />
             </label>
             <label>
@@ -47,6 +51,7 @@ function EditProfile() {
                 type="text"
                 name="Enter Address"
                 placeholder="Enter Address"
+                className = "EditProfileInput"
               />
             </label>
           </div>
@@ -61,6 +66,7 @@ function EditProfile() {
                 type="text"
                 name="Enter New Password"
                 placeholder="Enter New Password"
+                className = "EditProfileInput"
               />
             </label>
             <label>
@@ -69,6 +75,7 @@ function EditProfile() {
                 type="text"
                 name="Enter Current Password"
                 placeholder="Enter Current Password"
+                className = "EditProfileInput"
               />
             </label>
           </div>
