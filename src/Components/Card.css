@@ -55,6 +55,7 @@
 .iconWishlist{
   margin-right: 40px;
   font-size: 30px;
+  color: #003466;
 }
 
 .iconWishlist:hover{
@@ -64,6 +65,7 @@
 .iconEnvelop{
   margin-left: 40px;
   font-size: 30px;
+  color: #003466;
 }
 
 .iconEnvelop:hover{
