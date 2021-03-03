@@ -1,8 +1,10 @@
 import CardRender from "./CardRender";
+import ProfileProductCardRender from "./ProfileProductCardRender";
 import "./Card.css";
 import SearchAndSortRender from "./SearchAndSortRender";
 import Footer from "./Footer";
 import "./Pages.css";
+import ProfileProductCard from "./ProfileProductCard";
 
 function Home() {
   return (
@@ -16,6 +18,9 @@ function Home() {
         <CardRender text="Curtains" value="$30" />
         <CardRender text="Nike Hoodie" value="$80" />
         <CardRender text="Calculus I" value="$150" />
+        <ProfileProductCardRender text="New Product" value="$100" />
+        <ProfileProductCardRender text="New Product2" value="$200" />
+        <ProfileProductCardRender text="New Product3" value="$300" />
       </ul>
       <Footer />
     </div>

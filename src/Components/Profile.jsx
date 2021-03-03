@@ -5,6 +5,8 @@ import "./Pages.css";
 import React from "react"
 
 function Profile(props) {
+
+  
   const uploadedImage = React.useRef(null);
   const imageUploader = React.useRef(null);
 
@@ -20,6 +22,8 @@ function Profile(props) {
       reader.readAsDataURL(file);
     }
   };
+
+
   return (
     <div className="pageContent">
       <h1 className="title">Welcome to Profile Page</h1>

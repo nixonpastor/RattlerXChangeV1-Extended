@@ -1,0 +1,73 @@
+.CardContainer {
+    display: flex;
+    flex-flow: column;
+    width: 300px;
+    margin: 10px;
+    box-shadow: 0 6px 20px rgba(56, 125, 255, 0.17);
+    background-color: white;
+    border-radius: 10px;
+  }
+  
+  .CardsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-bottom: 20px;
+  }
+  
+  .PriceLabel {
+    position: relative;
+  }
+  
+  .PriceLabel::after {
+    content: attr(data-category);
+    margin-top: 10px;
+    bottom: 0;
+    color: white;
+    font-size: 20px;
+    background-color: #003466;
+    left: 0;
+    padding: 10px;
+    margin-left: -40px;
+    border-radius: 2px;
+  }
+  
+  .productTitle {
+    align-self: center;
+    border-top: 1px solid black;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    margin-top: -7px;
+  }
+  
+  .image {
+    align-self: center;
+    padding-left: 15px;
+  }
+  
+  .cardIcons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .iconEditProduct{
+    margin-right: 40px;
+    font-size: 30px;
+    color: #003466;
+  }
+  
+  .iconEditProduct:hover{
+    color: #f2bf49;
+  }
+  
+  .iconTrashCan{
+    margin-left: 40px;
+    font-size: 30px;
+    color: #003466;
+  }
+  
+  .iconTrashCan:hover{
+    color: #f2bf49;
+  }
