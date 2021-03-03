@@ -9,6 +9,7 @@ function SearchAndSort(props) {
             </div>
 
             <div className="sortAndSearch">
+                <button type="submit" className="sortButton">Filter Search</button>
                 <input type="text" className="searchTerm"
                     placeholder="What are you looking for?"
                 />

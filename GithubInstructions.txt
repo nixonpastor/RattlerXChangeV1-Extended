@@ -53,3 +53,7 @@ Test after node install
 
 Test after node install JZ
 --Hello there
+
+Add check
+
+checking push - amelia 3/2

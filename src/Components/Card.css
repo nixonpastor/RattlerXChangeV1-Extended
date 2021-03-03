@@ -45,3 +45,29 @@
   align-self: center;
   padding-left: 15px;
 }
+
+.cardIcons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.iconWishlist{
+  margin-right: 40px;
+  font-size: 30px;
+  color: #003466;
+}
+
+.iconWishlist:hover{
+  color: #f2bf49;
+}
+
+.iconEnvelop{
+  margin-left: 40px;
+  font-size: 30px;
+  color: #003466;
+}
+
+.iconEnvelop:hover{
+  color: #f2bf49;
+}

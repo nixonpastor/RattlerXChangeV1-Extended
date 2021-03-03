@@ -2,8 +2,28 @@ import { Link } from "react-router-dom";
 import Footer from "./Footer";
 import "./Profile.css";
 import "./Pages.css";
+import React from "react"
 
 function Profile(props) {
+
+  
+  const uploadedImage = React.useRef(null);
+  const imageUploader = React.useRef(null);
+
+  const handleImageUpload = e => {
+    const [file] = e.target.files;
+    if (file) {
+      const reader = new FileReader();
+      const { current } = uploadedImage;
+      current.file = file;
+      reader.onload = e => {
+        current.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+
   return (
     <div className="pageContent">
       <h1 className="title">Welcome to Profile Page</h1>
@@ -20,7 +40,42 @@ function Profile(props) {
         />
 
         {/* Would like to link to file browser */}
-        <li className="profilePic">Change Picture</li>
+        <div
+          style={{
+          //display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center"
+          }}
+    >
+        <input
+          type="file"
+          accept="image/*"
+          onChange={handleImageUpload}
+          ref={imageUploader}
+        style={{
+          display: "none"
+          }}
+      />
+      <div
+        style={{
+          height: "60px",
+          width: "60px",
+          border: "1px dashed black"
+        }}
+        onClick={() => imageUploader.current.click()}
+      >
+        <img
+          ref={uploadedImage}
+          style={{
+            width: "100%",
+            height: "100%",
+            position: "acsolute"
+          }}
+        />
+      </div>
+      Click to Upload an Image
+    </div>
 
         <div className="Name">Full Name</div>
 
