@@ -8,7 +8,12 @@ function Navbar() {
         <div className="RattlerLogo">
           <li className="RattlerBox">
             <Link to="/" className="RattlerLink">
-              Rattler XChange
+              {/* Rattler XChange */}
+              <img
+                src="RattlerXChangeLogo.png"
+                alt="Rattler XChange Logo"
+                className="RattlerLogoImg"
+              />
             </Link>
           </li>
         </div>

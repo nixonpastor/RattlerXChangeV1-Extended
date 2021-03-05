@@ -13,7 +13,7 @@ function Card(props) {
       </div>
       <div className="cardIcons">
         <Link to="/wishlist" className="iconWishlist">
-          <i className="fas fa-heart" x></i>
+          <i className="fas fa-heart"></i>
         </Link>
         <Link to="/outlook" className="iconEnvelop">
           <i class="fas fa-envelope"></i>

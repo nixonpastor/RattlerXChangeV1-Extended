@@ -1,5 +1,11 @@
 .footer {
-  background-color: #003466;
+  /* background-color: #003466; */
+  background: rgb(0, 52, 102);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 52, 102, 1) 27%,
+    rgba(242, 191, 73, 1) 89%
+  );
   margin-top: auto;
   height: 80px;
 }
