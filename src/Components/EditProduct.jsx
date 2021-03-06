@@ -33,7 +33,7 @@ function EditProduct() {
                     Description: 
                     <input type="text" name="Product Description" placeholder = "Edit Description" />
                 </label>
-                <input type="submit" value="Save Changes" />
+                <input type="submit" value="Save Changes" id="submitButton" />
             </form>
             </div>
         </div>
