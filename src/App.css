@@ -1,3 +1,10 @@
+html,
 body {
-  background-color: #f2bf49;
+  /* background-color: #f2bf49; */
+  background-color: white;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  padding: 0%;
+  overflow-x: hidden;
 }

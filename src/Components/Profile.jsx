@@ -2,9 +2,13 @@ import { Link } from "react-router-dom";
 import Footer from "./Footer";
 import "./Profile.css";
 import "./Pages.css";
+import ProfileProductCardRender from "./ProfileProductCardRender";
+import ProfileProductCard from "./ProfileProductCard";
 import React from "react"
 
 function Profile(props) {
+
+  
   const uploadedImage = React.useRef(null);
   const imageUploader = React.useRef(null);
 
@@ -20,9 +24,11 @@ function Profile(props) {
       reader.readAsDataURL(file);
     }
   };
+
+
   return (
     <div className="pageContent">
-      <h1 className="title">Welcome to Profile Page</h1>
+      <h1 className="title">Welcome</h1>
       <div className="userInfo">
         <div className="ProfileTag">
           <b className="tag">My Profile</b>
@@ -40,61 +46,71 @@ function Profile(props) {
           style={{
           //display: "flex",
           flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center"
+          alignItems: "left",
+          justifyContent: "left",
           }}
     >
-        <input
-          type="file"
-          accept="image/*"
-          onChange={handleImageUpload}
-          ref={imageUploader}
-        style={{
-          display: "none"
+          <input
+            type="file"
+            accept="image/*"
+            onChange={handleImageUpload}
+            ref={imageUploader}
+            style={{
+            display: "none"
           }}
-      />
-      <div
-        style={{
-          height: "60px",
-          width: "60px",
-          border: "1px dashed black"
-        }}
-        onClick={() => imageUploader.current.click()}
-      >
-        <img
-          ref={uploadedImage}
-          style={{
+          />
+          <div
+            style={{
+            height: "60px",
+            width: "60px",
+            border: "1px dashed black"
+          }}
+          onClick={() => imageUploader.current.click()}
+          >
+          <img
+            ref={uploadedImage}
+            style={{
             width: "100%",
             height: "100%",
             position: "acsolute"
           }}
-        />
-      </div>
-      Click to Upload an Image
-    </div>
+          />
+          </div>
+          Click to Upload an Image
+        </div>
 
         <div className="Name">Full Name</div>
 
         {/* Used link here just in case we want to have this take
           the person straight to Outlook */}
+
         <li className="Email">Email</li>
         <div className="productsListed">No. of Products Listed</div>
       </div>
-      <li className="link">
-        <Link to="/editProfile" className="links">
-          Edit Profile
-        </Link>
-      </li>
-      <li className="link">
-        <Link to="/addProduct" className="links">
-          Add a Product
-        </Link>
-      </li>
-      <li className="link">
-        <Link to="/signIn" className="links">
-          Log Out
-        </Link>
-      </li>
+
+      <div className = "cards">
+        <ProfileProductCardRender text="New Product" value="$100" />
+        <ProfileProductCardRender text="New Product2" value="$200" />
+        <ProfileProductCardRender text="New Product3" value="$300" />
+      </div>
+
+      <div className= "hyper">
+        <li className="link">
+          <Link to="/editProfile" className="links">
+           Edit Profile
+         </Link>
+        </li>
+        <li className="link">
+          <Link to="/addProduct" className="links">
+           Add a Product
+          </Link>
+        </li>
+        <li className="link">
+          <Link to="/signIn" className="links">
+           Log Out
+          </Link>
+        </li>
+      </div>
       <Footer />
     </div>
   );

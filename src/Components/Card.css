@@ -8,11 +8,19 @@
   border-radius: 10px;
 }
 
+.CardContainer:hover {
+  box-shadow: rgba(0, 0, 0, 0.22) 0px 19px 43px;
+  transform: translate3d(0px, -1px, 0px);
+}
+
 .CardsContainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   padding-bottom: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 15px;
 }
 
 .PriceLabel {
@@ -44,4 +52,31 @@
 .image {
   align-self: center;
   padding-left: 15px;
+}
+
+.cardIcons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+.iconWishlist {
+  margin-right: 40px;
+  font-size: 30px;
+  color: #003466;
+}
+
+.iconWishlist:hover {
+  color: #f2bf49;
+}
+
+.iconEnvelop {
+  margin-left: 40px;
+  font-size: 30px;
+  color: #003466;
+}
+
+.iconEnvelop:hover {
+  color: #f2bf49;
 }

@@ -1,13 +1,13 @@
-.editProfile{
-    text-align: center;
+.editProfile {
+  text-align: center;
 }
-#heading{
-    color: white;
+#heading {
+  color: white;
 }
-.formLables{
-    margin-left: 420px;
+.formLables {
+  margin-left: 420px;
 }
-.formLables label{
+.formLables label {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -16,19 +16,19 @@
   line-height: 26px;
   margin-bottom: 10px;
 }
-.formLables input{
-    height: 20px;
-    flex: 0 0 200px;
-    margin-left: 10px;
-    text-align: center;
+.formLables input {
+  height: 20px;
+  flex: 0 0 200px;
+  margin-left: 10px;
+  text-align: center;
 }
 
-input{
-    height: 30px;
-    flex: 0 0 190px;
-    margin-left: 70px;
-    text-align: center;
-    background-color: white;
-    cursor: pointer;
-    padding: 0px 12px;
+.EditProfileInput {
+  height: 30px;
+  flex: 0 0 190px;
+  margin-left: 70px;
+  text-align: center;
+  background-color: white;
+  cursor: pointer;
+  padding: 0px 12px;
 }

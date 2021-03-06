@@ -1,5 +1,7 @@
 import "./Card.css";
 
+import { Link } from "react-router-dom";
+
 function Card(props) {
   return (
     <li className="CardContainer">
@@ -8,6 +10,14 @@ function Card(props) {
       </figure>
       <div className="productTitle">
         <h1>{props.text}</h1>
+      </div>
+      <div className="cardIcons">
+        <Link to="/wishlist" className="iconWishlist">
+          <i className="fas fa-heart"></i>
+        </Link>
+        <Link to="/outlook" className="iconEnvelop">
+          <i class="fas fa-envelope"></i>
+        </Link>
       </div>
     </li>
   );
