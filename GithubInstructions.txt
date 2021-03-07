@@ -63,3 +63,6 @@ checking push - amelia 3/2
 RUN npm i firebase 
 RUN npm i bootstrap react-bootstrap
 npm install reactstrap
+
+
+- checking my end. 
