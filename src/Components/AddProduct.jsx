@@ -52,7 +52,7 @@ function AddProduct() {
                 placeholder="Product Description"
               />
             </label>
-            <input type="submit" value="List Product" />
+            <input type="submit" value="List Product" id="submitButton" />
           </form>
         </div>
       </div>
