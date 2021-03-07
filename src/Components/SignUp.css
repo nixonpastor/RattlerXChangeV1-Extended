@@ -1,0 +1,14 @@
+.signUpHeader {
+  color: black;
+}
+
+.signUpCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-self: center;
+  align-items: center;
+  align-content: center;
+  width: 250px;
+  border: 1px solid black;
+}

@@ -3,28 +3,24 @@ import Footer from "./Footer";
 import "./Profile.css";
 import "./Pages.css";
 import ProfileProductCardRender from "./ProfileProductCardRender";
-import ProfileProductCard from "./ProfileProductCard";
-import React from "react"
+import React from "react";
 
 function Profile(props) {
-
-  
   const uploadedImage = React.useRef(null);
   const imageUploader = React.useRef(null);
 
-  const handleImageUpload = e => {
+  const handleImageUpload = (e) => {
     const [file] = e.target.files;
     if (file) {
       const reader = new FileReader();
       const { current } = uploadedImage;
       current.file = file;
-      reader.onload = e => {
+      reader.onload = (e) => {
         current.src = e.target.result;
       };
       reader.readAsDataURL(file);
     }
   };
-
 
   return (
     <div className="pageContent">
@@ -44,37 +40,38 @@ function Profile(props) {
         {/* Would like to link to file browser */}
         <div
           style={{
-          //display: "flex",
-          flexDirection: "column",
-          alignItems: "left",
-          justifyContent: "left",
+            //display: "flex",
+            flexDirection: "column",
+            alignItems: "left",
+            justifyContent: "left",
           }}
-    >
+        >
           <input
             type="file"
             accept="image/*"
             onChange={handleImageUpload}
             ref={imageUploader}
             style={{
-            display: "none"
-          }}
+              display: "none",
+            }}
           />
           <div
             style={{
-            height: "60px",
-            width: "60px",
-            border: "1px dashed black"
-          }}
-          onClick={() => imageUploader.current.click()}
+              height: "60px",
+              width: "60px",
+              border: "1px dashed black",
+            }}
+            onClick={() => imageUploader.current.click()}
           >
-          <img
-            ref={uploadedImage}
-            style={{
-            width: "100%",
-            height: "100%",
-            position: "acsolute"
-          }}
-          />
+            <img
+              ref={uploadedImage}
+              alt="Profile"
+              style={{
+                width: "100%",
+                height: "100%",
+                position: "acsolute",
+              }}
+            />
           </div>
           Click to Upload an Image
         </div>
@@ -88,26 +85,26 @@ function Profile(props) {
         <div className="productsListed">No. of Products Listed</div>
       </div>
 
-      <div className = "cards">
+      <div className="cards">
         <ProfileProductCardRender text="New Product" value="$100" />
         <ProfileProductCardRender text="New Product2" value="$200" />
         <ProfileProductCardRender text="New Product3" value="$300" />
       </div>
 
-      <div className= "hyper">
+      <div className="hyper">
         <li className="link">
           <Link to="/editProfile" className="links">
-           Edit Profile
-         </Link>
+            Edit Profile
+          </Link>
         </li>
         <li className="link">
           <Link to="/addProduct" className="links">
-           Add a Product
+            Add a Product
           </Link>
         </li>
         <li className="link">
           <Link to="/signIn" className="links">
-           Log Out
+            Log Out
           </Link>
         </li>
       </div>

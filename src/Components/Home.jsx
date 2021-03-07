@@ -4,7 +4,6 @@ import "./Card.css";
 import SearchAndSortRender from "./SearchAndSortRender";
 import Footer from "./Footer";
 import "./Pages.css";
-import ProfileProductCard from "./ProfileProductCard";
 
 function Home() {
   return (

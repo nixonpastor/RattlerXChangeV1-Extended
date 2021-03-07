@@ -1,4 +1,5 @@
 import "./App.css";
+import "./Components/Navbar.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from "./Components/Home";
 import Books from "./Components/Books";
@@ -11,6 +12,7 @@ import Navbar from "./Components/ Navbar";
 import EditProfile from "./Components/EditProfile";
 import AddProduct from "./Components/AddProduct";
 import EditProduct from "./Components/EditProduct";
+import SignUpScreen from "./Components/SignUpScreen";
 
 function App() {
   return (
@@ -26,10 +28,14 @@ function App() {
       <Route path="/editprofile" exact component={EditProfile} />
       <Route path="/addproduct" exact component={AddProduct} />
       <Route path="/editproduct" exact component={EditProduct} />
-      <Route path='/outlook' component={() => {
-        window.location.href = 'https://id.quicklaunch.io/StMarytx';
-        return null;
-      }} />
+      <Route path="/signup" exact component={SignUpScreen} />
+      <Route
+        path="/outlook"
+        component={() => {
+          window.location.href = "https://id.quicklaunch.io/StMarytx";
+          return null;
+        }}
+      />
     </Router>
   );
 }
