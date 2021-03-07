@@ -8,54 +8,62 @@ function AddProduct() {
       <h2 className="addProductHeader">Add a Product</h2>
       <div className="main">
         <div className="addImage">
-          <button>Add Image(s) +</button>
+          <button className="addProductImage">Add Image(s) +</button>
         </div>
         <div className="productLabels">
-          <form>
-            <label>
+          <form className="productForm">
+            <label className="productName">
               Product Name:
               <input
                 type="text"
                 name="Enter Product name"
                 placeholder="Enter Product name"
+                className="addProductInput"
               />
-            </label>
-            <label>
+            </label >
+            <label className="productCost">
               Cost:
               <input
                 type="text"
                 name="Enter Cost of the Product"
                 placeholder="Enter Cost of the Product"
+                className="addProductInput"
               />
             </label>
-            <label>
+            <label className="productCondition">
               Product Condition :
               <input
                 type="text"
                 name="Enter Product Condition"
                 placeholder="Enter Product Condition"
+                className="addProductInput"
               />
             </label>
-            <label>
+            <label className="productCategory">
               Category:
               <input
                 type="text"
                 name="Select Category"
                 placeholder="Select Category"
+                className="addProductInput"
               />
             </label>
-            <label>
+            <label className="productDescription">
               Description:
               <input
                 type="text"
                 name="Product Description"
                 placeholder="Product Description"
+                className="addProductInput"
               />
             </label>
-            <input type="submit" value="List Product" id="submitButton" />
+            <button type="submit" className="submitButton">
+              Submit
+            </button>
           </form>
         </div>
       </div>
+
       <Footer />
     </div>
   );

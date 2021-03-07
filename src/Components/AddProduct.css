@@ -12,7 +12,13 @@
 
 .addImage {
   float: left;
-  width: 50%;
+  align-items: left;
+  width: 35%;
+}
+
+.addProductImage{
+  height: 450px;
+  width: 400px;
 }
 
 .addImage button {
@@ -25,6 +31,13 @@
   cursor: pointer;
 }
 
+.productLabels{
+  display: flex;
+  align-content: center;
+  width:700px;
+}
+
+/*
 .productLabels label {
   display: flex;
   width: 100%;
@@ -35,7 +48,38 @@
   margin-bottom: 10px;
   justify-content: flex-end;
 }
+*/
 
-#submitButton {
+.productForm{
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width:100%;
+  margin: 10px;
+}
+
+.addProductInput{
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/*
+.submitButton {
   margin-left: 337px;
+}
+*/
+
+.submitButton {
+  height: 39px;
+  width: 100%;
+  margin-right: 5px;
+  background-color: #003466;
+  text-decoration: none;
+  border: none;
+  color: white;
+  border-radius: 1px;
 }
