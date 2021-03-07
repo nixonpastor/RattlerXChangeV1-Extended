@@ -1,9 +1,9 @@
-.editProfile {
-  text-align: center;
-}
-#heading {
+
+/*
+.headingEditProfile {
   color: white;
 }
+
 .formLables {
   margin-left: 420px;
 }
@@ -31,4 +31,69 @@
   background-color: white;
   cursor: pointer;
   padding: 0px 12px;
+}
+*/
+
+.headingEditProfile{
+  text-align: center;
+}
+
+.editProfile {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 80%;
+  margin: 10px;
+  align-content: center;
+}
+
+.updatePasswordButton {
+  height: 39px;
+  width: 100%;
+  margin-right: 5px;
+  background-color: #003466;
+  text-decoration: none;
+  border: none;
+  color: white;
+  border-radius: 1px;
+  width: 35%;
+  align-self: center;
+}
+
+.updateProfileButton{
+  height: 39px;
+  width: 100%;
+  margin-right: 5px;
+  background-color: #003466;
+  text-decoration: none;
+  border: none;
+  color: white;
+  border-radius: 1px;
+  width: 35%;
+  align-self: center;
+}
+
+.userProfileDetail{
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width:100%;
+  margin: 10px;
+}
+
+.EditProfileInput{
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.userProfilePasswordDetail{
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width:100%;
+  margin: 10px;
 }

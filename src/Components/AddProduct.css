@@ -1,16 +1,19 @@
+/* title of the page */
 .addProductHeader {
   color: black;
   text-align: center;
 }
 
-.main {
+/*main block where the image and form goes. */
+.mainAddProduct {
   display: flex;
   height: 100%;
   width: 100%;
   font-size: 20px;
 }
 
-.addImage {
+/*block where you add image */
+.addImageAddProduct {
   float: left;
   align-items: left;
   width: 35%;
@@ -21,7 +24,7 @@
   width: 400px;
 }
 
-.addImage button {
+.addProductImage {
   text-align: center;
   margin-left: 100px;
   padding: 100px 100px;

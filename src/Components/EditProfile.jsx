@@ -6,16 +6,16 @@ function EditProfile() {
   return (
     <div className="pageContent">
       <div className="editProfile" id="stylized">
-        <form>
-          <h2 id="heading">Edit Profile</h2>
-          <div className="formLables">
+        <form className="userProfileDetail">
+          <h2 id="headingEditProfile">Edit Profile</h2>
+          <div className="userProfileLables">
             <label>
               First Name:
               <input
                 type="text"
                 name="Enter First name"
                 placeholder="Enter First name"
-                className = "EditProfileInput"
+                className="EditProfileInput"
               />
             </label>
             <label>
@@ -24,7 +24,7 @@ function EditProfile() {
                 type="text"
                 name="Enter Last name"
                 placeholder="Enter Last name"
-                className = "EditProfileInput"
+                className="EditProfileInput"
               />
             </label>
             <label>
@@ -33,7 +33,7 @@ function EditProfile() {
                 type="text"
                 name="Enter Phone Number"
                 placeholder="Enter Phone Number"
-                className = "EditProfileInput"
+                className="EditProfileInput"
               />
             </label>
             <label>
@@ -42,7 +42,7 @@ function EditProfile() {
                 type="text"
                 name="Enter Email Address"
                 placeholder="Enter Email Address"
-                className = "EditProfileInput"
+                className="EditProfileInput"
               />
             </label>
             <label>
@@ -51,22 +51,23 @@ function EditProfile() {
                 type="text"
                 name="Enter Address"
                 placeholder="Enter Address"
-                className = "EditProfileInput"
+                className="EditProfileInput"
               />
             </label>
           </div>
-          <input type="submit" value="Update Profile" />
+          <button type="submit" className="updateProfileButton">
+            Update Profile </button>
         </form>
-        <form>
-          <h2 id="heading">Change Password</h2>
-          <div className="formLables">
+        <form className="userProfilePasswordDetail">
+          <h2 id="headingEditProfile">Change Password</h2>
+          <div className="formProfileLables">
             <label>
               New Password:
               <input
                 type="text"
                 name="Enter New Password"
                 placeholder="Enter New Password"
-                className = "EditProfileInput"
+                className="EditProfileInput"
               />
             </label>
             <label>
@@ -75,11 +76,12 @@ function EditProfile() {
                 type="text"
                 name="Enter Current Password"
                 placeholder="Enter Current Password"
-                className = "EditProfileInput"
+                className="EditProfileInput"
               />
             </label>
           </div>
-          <input type="submit" value="Update Password" />
+          <button type="submit" className="updatePasswordButton">
+            Update Password </button>
         </form>
       </div>
       <Footer />
