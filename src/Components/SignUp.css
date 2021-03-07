@@ -1,5 +1,6 @@
 .signUpHeader {
   color: black;
+  margin-top: -5px;
 }
 
 .signUpCard {
@@ -9,6 +10,44 @@
   justify-self: center;
   align-items: center;
   align-content: center;
-  width: 250px;
-  border: 1px solid black;
+  width: 400px;
+  height: 300px;
+  border: 1px solid grey;
+  border-radius: 5px;
+  box-shadow: 0 6px 20px rgba(56, 125, 255, 0.17);
+}
+
+.signUpBody {
+  /* margin-top: -80px; */
+  height: 250px;
+}
+
+.signUpForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.emailField {
+  padding-right: 10px;
+}
+
+.textInput {
+  width: 200px;
+}
+
+.InputField {
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.passwordField {
+  padding-right: 10px;
+}
+
+.signUpBox {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

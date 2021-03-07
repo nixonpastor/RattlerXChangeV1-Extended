@@ -1,31 +1,31 @@
- h2{
-    color: white;
-    text-align: center;
+.addProductHeader {
+  color: black;
+  text-align: center;
 }
 
-.main{
-    display: flex;
-    height: 100%;
-    width: 100%;
-    font-size: 20px;
+.main {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  font-size: 20px;
 }
 
-.addImage{
-    float: left;
-    width: 50%;
+.addImage {
+  float: left;
+  width: 50%;
 }
 
-.addImage button{
-    text-align: center;
-    margin-left: 100px;
-    padding: 100px 100px;
-    margin-top: 15px;
-    background-color: white;
-    font-weight: bold;
-    cursor: pointer;
+.addImage button {
+  text-align: center;
+  margin-left: 100px;
+  padding: 100px 100px;
+  margin-top: 15px;
+  background-color: white;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-.productLabels label{
+.productLabels label {
   display: flex;
   width: 100%;
   justify-content: center;
@@ -37,6 +37,5 @@
 }
 
 #submitButton {
-    margin-left: 337px;
+  margin-left: 337px;
 }
-

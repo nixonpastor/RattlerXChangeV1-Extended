@@ -3,7 +3,7 @@ import SignUp from "./SignUp";
 
 export default function SignUpScreen() {
   return (
-    <div>
+    <div className="signUpBox">
       <SignUp />
     </div>
   );

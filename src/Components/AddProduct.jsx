@@ -5,7 +5,7 @@ import "./Pages.css";
 function AddProduct() {
   return (
     <div className="pageContent">
-      <h2>Add a Product</h2>
+      <h2 className="addProductHeader">Add a Product</h2>
       <div className="main">
         <div className="addImage">
           <button>Add Image(s) +</button>

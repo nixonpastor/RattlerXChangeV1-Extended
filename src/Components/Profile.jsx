@@ -25,88 +25,83 @@ function Profile(props) {
   return (
     <div className="pageContent">
       <h1 className="title">Welcome</h1>
-      <div className="userInfo">
-        <div className="ProfileTag">
-          <b className="tag">My Profile</b>
-        </div>
-        <img
-          className="image"
-          alt="profile pic"
-          src="logo192.png"
-          text={props.text}
-          value={props.value}
-        />
+      <div className="rowUserProfileProducts">
+        <div className="userInfo">
+          <div className="ProfileTag">
+            <b className="tag">My Profile</b>
+          </div>
 
-        {/* Would like to link to file browser */}
-        <div
-          style={{
-            //display: "flex",
-            flexDirection: "column",
-            alignItems: "left",
-            justifyContent: "left",
-          }}
-        >
-          <input
-            type="file"
-            accept="image/*"
-            onChange={handleImageUpload}
-            ref={imageUploader}
-            style={{
-              display: "none",
-            }}
-          />
+          {/* Would like to link to file browser */}
           <div
             style={{
-              height: "60px",
-              width: "60px",
-              border: "1px dashed black",
+              //display: "flex",
+              flexDirection: "column",
+              alignItems: "left",
+              justifyContent: "left",
+              marginTop: "10px",
             }}
-            onClick={() => imageUploader.current.click()}
           >
-            <img
-              ref={uploadedImage}
-              alt="Profile"
+            <input
+              type="file"
+              accept="image/*"
+              onChange={handleImageUpload}
+              ref={imageUploader}
               style={{
-                width: "100%",
-                height: "100%",
-                position: "acsolute",
+                display: "none",
               }}
             />
+            <div
+              style={{
+                height: "60px",
+                width: "60px",
+                border: "1px dashed black",
+              }}
+              onClick={() => imageUploader.current.click()}
+            >
+              <img
+                ref={uploadedImage}
+                alt="Profile"
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  position: "acsolute",
+                }}
+              />
+            </div>
+            Click to Upload an Image
           </div>
-          Click to Upload an Image
-        </div>
 
-        <div className="Name">Full Name</div>
+          <div className="Name">Full Name</div>
 
-        {/* Used link here just in case we want to have this take
+          {/* Used link here just in case we want to have this take
           the person straight to Outlook */}
 
-        <li className="Email">Email</li>
-        <div className="productsListed">No. of Products Listed</div>
-      </div>
+          <li className="Email">Email</li>
+          <div className="productsListed">No. of Products Listed</div>
+          <div className="hyper">
+            <li className="link">
+              <Link to="/editProfile" className="profilelink">
+                Edit Profile
+              </Link>
+            </li>
+            <li className="link">
+              <Link to="/addProduct" className="profilelink">
+                Add a Product
+              </Link>
+            </li>
+            <li className="link">
+              <Link to="/signIn" className="profilelink">
+                Log Out
+              </Link>
+            </li>
+          </div>
+        </div>
 
-      <div className="cards">
-        <ProfileProductCardRender text="New Product" value="$100" />
-        <ProfileProductCardRender text="New Product2" value="$200" />
-        <ProfileProductCardRender text="New Product3" value="$300" />
-      </div>
-
-      <div className="hyper">
-        <li className="link">
-          <Link to="/editProfile" className="links">
-            Edit Profile
-          </Link>
-        </li>
-        <li className="link">
-          <Link to="/addProduct" className="links">
-            Add a Product
-          </Link>
-        </li>
-        <li className="link">
-          <Link to="/signIn" className="links">
-            Log Out
-          </Link>
-        </li>
+        <div className="cards">
+          <ProfileProductCardRender text="New Product" value="$100" />
+          <ProfileProductCardRender text="New Product2" value="$200" />
+          <ProfileProductCardRender text="New Product3" value="$300" />
+        </div>
       </div>
       <Footer />
     </div>
