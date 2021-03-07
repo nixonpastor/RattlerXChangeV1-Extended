@@ -34,7 +34,7 @@ function Profile(props) {
           {/* Would like to link to file browser */}
           <div
             style={{
-              display: flex,
+              display: "flex",
               flexDirection: "column",
               alignItems: "center",
               justifyContent: "center",
