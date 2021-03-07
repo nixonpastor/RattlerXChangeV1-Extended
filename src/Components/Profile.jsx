@@ -34,11 +34,11 @@ function Profile(props) {
           {/* Would like to link to file browser */}
           <div
             style={{
-              //display: "flex",
+              display: "flex",
               flexDirection: "column",
-              alignItems: "left",
-              justifyContent: "left",
-              marginTop: "10px",
+              alignItems: "center",
+              justifyContent: "center",
+              marginTop: "10px"
             }}
           >
             <input
@@ -55,6 +55,7 @@ function Profile(props) {
                 height: "60px",
                 width: "60px",
                 border: "1px dashed black",
+                alignContent: "center"
               }}
               onClick={() => imageUploader.current.click()}
             >
