@@ -1,0 +1,85 @@
+ .productInfoHeader {
+    color: black;
+    text-align: center;
+  }
+  
+
+  .mainProductInfo {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    font-size: 20px;
+  }
+  
+
+  .imageProductInfo {
+    float: left;
+    align-items: left;
+    width: 35%;
+  }
+  
+  .productInfoImageButton{
+    height: 450px;
+    width: 400px;
+  }
+  
+  .productInfoImageButton {
+    text-align: center;
+    margin-left: 100px;
+    padding: 100px 100px;
+    margin-top: 15px;
+    background-color: white;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  
+  .productLabels{
+    display: flex;
+    align-content: center;
+    width:700px;
+  }
+
+  .productInfoForm{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width:100%;
+    margin: 10px;
+  }
+  
+  .productInfoField{
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .sellerInfoButton {
+    height: 39px;
+    width: 50%;
+    margin-right: 5px;
+    background-color: #003466;
+    text-decoration: none;
+    border: none;
+    color: white;
+    border-radius: 1px;
+  }
+
+  .wishlistButton {
+    height: 39px;
+    width: 50%;
+    margin-right: 5px;
+    background-color: #003466;
+    text-decoration: none;
+    border: none;
+    color: white;
+    border-radius: 1px;
+  }
+
+
+
+
+  

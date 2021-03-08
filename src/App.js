@@ -13,6 +13,7 @@ import EditProfile from "./Components/EditProfile";
 import AddProduct from "./Components/AddProduct";
 import EditProduct from "./Components/EditProduct";
 import SignUpScreen from "./Components/SignUpScreen";
+import ProductInfo from "./Components/ProductInfo";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
       <Route path="/addproduct" exact component={AddProduct} />
       <Route path="/editproduct" exact component={EditProduct} />
       <Route path="/signup" exact component={SignUpScreen} />
+      <Route path="/productinfo" exact component={ProductInfo} />
       <Route
         path="/outlook"
         component={() => {
