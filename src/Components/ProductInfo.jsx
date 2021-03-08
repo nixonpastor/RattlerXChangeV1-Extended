@@ -33,15 +33,20 @@ function ProductInfo() {
                     <input type="button" name="Description" className="productInfoField" value="Description not avaiable" />
                         </label>
                     
-                    <div>
+                    <div className = "buttons">
                       <div>
                       <button type="submit" className="sellerInfoButton">
                             Seller Info
+                            <div class = "buttonTextSpace" />
+                            <i class="fas fa-envelope"></i>
                       </button>
                       </div>
+                      <div class="divider"/>
                       <div>
                       <button type="submit" className="wishlistButton">
-                            Wishlist
+                            Wishlist  
+                            <div class = "buttonTextSpace" />
+                            <i class="fas fa-heart"></i>
                       </button>
                       </div>
                     </div>

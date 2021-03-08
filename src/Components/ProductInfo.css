@@ -57,20 +57,31 @@
     margin-bottom: 10px;
   }
 
+  .buttons {
+    display: flex;
+  }
+
   .sellerInfoButton {
     height: 39px;
-    width: 50%;
+    width: 330px;
     margin-right: 5px;
     background-color: #003466;
     text-decoration: none;
     border: none;
     color: white;
     border-radius: 1px;
+  }
+
+  .divider{
+    width: 250px;
+    height: 39px;
+    display: inline-block;
   }
 
   .wishlistButton {
     height: 39px;
-    width: 50%;
+    width: 330px;
+    float: right;
     margin-right: 5px;
     background-color: #003466;
     text-decoration: none;
@@ -79,6 +90,10 @@
     border-radius: 1px;
   }
 
+  .buttonTextSpace {
+    display: inline-block;
+    width: 10px;
+  }
 
 
 
