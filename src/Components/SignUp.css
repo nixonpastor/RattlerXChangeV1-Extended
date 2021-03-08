@@ -1,6 +1,7 @@
 .signUpHeader {
   color: black;
   margin-top: -5px;
+  text-align: center;
 }
 
 .signUpCard {
@@ -11,7 +12,7 @@
   align-items: center;
   align-content: center;
   width: 400px;
-  height: 300px;
+  height: 400px;
   border: 1px solid grey;
   border-radius: 5px;
   box-shadow: 0 6px 20px rgba(56, 125, 255, 0.17);
@@ -19,7 +20,7 @@
 
 .signUpBody {
   /* margin-top: -80px; */
-  height: 250px;
+  height: 300px;
 }
 
 .signUpForm {

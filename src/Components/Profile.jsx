@@ -3,11 +3,18 @@ import Footer from "./Footer";
 import "./Profile.css";
 import "./Pages.css";
 import ProfileProductCardRender from "./ProfileProductCardRender";
-import React from "react";
+import React, { useState } from "react";
+import { useAuth } from "../contexts/AuthContext";
+import { useHistory } from "react-router-dom";
+import { Alert } from "react-bootstrap";
 
 function Profile(props) {
   const uploadedImage = React.useRef(null);
   const imageUploader = React.useRef(null);
+  const history = useHistory();
+  //getting the logged in user
+  const { currentUser, logout } = useAuth();
+  const [error, setError] = useState("");
 
   const handleImageUpload = (e) => {
     const [file] = e.target.files;
@@ -21,6 +28,16 @@ function Profile(props) {
       reader.readAsDataURL(file);
     }
   };
+
+  async function handleLogout() {
+    setError("");
+    try {
+      await logout();
+      history.push("/login");
+    } catch {
+      setError("Failed to log out");
+    }
+  }
 
   return (
     <div className="pageContent">
@@ -38,7 +55,7 @@ function Profile(props) {
               flexDirection: "column",
               alignItems: "center",
               justifyContent: "center",
-              marginTop: "10px"
+              marginTop: "10px",
             }}
           >
             <input
@@ -55,7 +72,7 @@ function Profile(props) {
                 height: "60px",
                 width: "60px",
                 border: "1px dashed black",
-                alignContent: "center"
+                alignContent: "center",
               }}
               onClick={() => imageUploader.current.click()}
             >
@@ -77,7 +94,7 @@ function Profile(props) {
           {/* Used link here just in case we want to have this take
           the person straight to Outlook */}
 
-          <li className="Email">Email</li>
+          <li className="Email">Email: {currentUser.email}</li>
           <div className="productsListed">No. of Products Listed</div>
           <div className="hyper">
             <li className="link">
@@ -91,9 +108,10 @@ function Profile(props) {
               </Link>
             </li>
             <li className="link">
-              <Link to="/signIn" className="profilelink">
+              <Link to="/login" onClick={handleLogout} className="profilelink">
                 Log Out
               </Link>
+              {error && <Alert variant="danger">{error}</Alert>}
             </li>
           </div>
         </div>
