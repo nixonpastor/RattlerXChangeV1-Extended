@@ -6,8 +6,8 @@ function AddProduct() {
   return (
     <div className="pageContent">
       <h2 className="addProductHeader">Add a Product</h2>
-      <div className="main">
-        <div className="addImage">
+      <div className="mainAddProduct">
+        <div className="addImageAddProduct">
           <button className="addProductImage">Add Image(s) +</button>
         </div>
         <div className="productLabels">

@@ -13,10 +13,11 @@ import EditProfile from "./Components/EditProfile";
 import AddProduct from "./Components/AddProduct";
 import EditProduct from "./Components/EditProduct";
 import SignUpScreen from "./Components/SignUpScreen";
-import LoginScreen from "./Components/LoginScreen";
-import ForgotPassword from "./Components/ForgotPassword";
-import { AuthProvider } from "./contexts/AuthContext";
+import ProductInfo from "./Components/ProductInfo";
 import PrivateRoute from "./Components/PrivateRoute";
+import { AuthProvider } from "./contexts/AuthContext";
+import ForgotPassword from "./Components/ForgotPassword";
+import LoginScreen from "./Components/LoginScreen";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
           <PrivateRoute path="/editprofile" exact component={EditProfile} />
           <PrivateRoute path="/addproduct" exact component={AddProduct} />
           <PrivateRoute path="/editproduct" exact component={EditProduct} />
+          <PrivateRoute path="/productinfo" exact component={ProductInfo} />
           <Route path="/forgotpassword" exact component={ForgotPassword} />
           <Route path="/signup" exact component={SignUpScreen} />
           <Route path="/login" exact component={LoginScreen} />

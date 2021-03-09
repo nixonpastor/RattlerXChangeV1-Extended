@@ -59,9 +59,9 @@ function EditProfile() {
   return (
     <div className="pageContent">
       <div className="editProfile" id="stylized">
-        <form>
-          <h2 id="heading">Edit Profile</h2>
-          <div className="formLables">
+        <form className="userProfileDetail">
+          <h2 id="headingEditProfile">Edit Profile</h2>
+          <div className="userProfileLables">
             <label>
               First Name:
               <input
@@ -96,7 +96,7 @@ function EditProfile() {
                 type="text"
                 name="Enter Email Address"
                 placeholder="Enter Email Address"
-                className = "EditProfileInput"
+                className="EditProfileInput"
               />
             </label> */}
             <label>
@@ -109,14 +109,13 @@ function EditProfile() {
               />
             </label>
           </div>
-          <input type="submit" value="Update Profile" />
+          <button type="submit" className="updateProfileButton">
+            Update Profile{" "}
+          </button>
         </form>
-        {/* COMMENTED THIS SECTION FOR LATER IMPLEMENTATION */}
-        {/* <form onSubmit={handleSubmit}>
-          <h2 id="heading">Update Password</h2>
-          {error && <Alert variant="danger">{error}</Alert>}
-          {message && <Alert variant="danger">{message}</Alert>}
-          <div className="formLables">
+        <form className="userProfilePasswordDetail">
+          <h2 id="headingEditProfile">Change Password</h2>
+          <div className="formProfileLables">
             <label>
               New Password:
               <input
@@ -124,7 +123,6 @@ function EditProfile() {
                 name="Enter New Password"
                 placeholder="Enter New Password"
                 className="EditProfileInput"
-                ref={newPasswordRef}
               />
             </label>
             <label>
@@ -134,12 +132,13 @@ function EditProfile() {
                 name="Enter Current Password"
                 placeholder="Enter Current Password"
                 className="EditProfileInput"
-                ref={passwordCurrentRef}
               />
             </label>
           </div>
-          <input disabled={loading} type="submit" value="Update Password" />
-        </form> */}
+          <button type="submit" className="updatePasswordButton">
+            Update Password{" "}
+          </button>
+        </form>
       </div>
       <Footer />
     </div>
