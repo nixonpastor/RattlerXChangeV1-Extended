@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Footer from "./Footer";
 import "./ProductInfo.css";
 
@@ -32,25 +33,25 @@ function ProductInfo() {
                             Description:
                     <input type="button" name="Description" className="productInfoField" value="Description not avaiable" />
                         </label>
-                    
-                    <div className = "buttons">
-                      <div>
-                      <button type="submit" className="sellerInfoButton">
-                            Seller Info
-                            <div class = "buttonTextSpace" />
-                            <i class="fas fa-envelope"></i>
-                      </button>
-                      </div>
-                      <div class="divider"/>
-                      <div>
-                      <button type="submit" className="wishlistButton">
-                            Wishlist  
-                            <div class = "buttonTextSpace" />
-                            <i class="fas fa-heart"></i>
-                      </button>
-                      </div>
-                    </div>
-                    
+
+                        <div className="buttons">
+                            <div>
+                                <button type="submit" className="sellerInfoButton">
+                                    Contact Seller
+                            <div class="buttonTextSpace" />
+                                    <i class="fas fa-envelope"></i>
+                                </button>
+                            </div>
+                            <div class="divider" />
+                            <div>
+                                <button type="submit" className="wishlistButton">
+                                    Wishlist
+                            <div class="buttonTextSpace" />
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+
                     </form>
                 </div>
             </div>
