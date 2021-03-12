@@ -44,7 +44,8 @@ function App() {
           <PrivateRoute
             path="/outlook"
             component={() => {
-              window.location.href = "https://id.quicklaunch.io/StMarytx";
+              window.location.href =
+                "https://outlook.office.com/stmarytx.edu/?path=/mail/action/compose&to=emailname@domain.com&subject=Email%20Subject%20Here&body=some+content+goes+here";
               return null;
             }}
           />
