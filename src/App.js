@@ -18,6 +18,7 @@ import PrivateRoute from "./Components/PrivateRoute";
 import { AuthProvider } from "./contexts/AuthContext";
 import ForgotPassword from "./Components/ForgotPassword";
 import LoginScreen from "./Components/LoginScreen";
+import SellerInfo from "./Components/SellerInfo";
 
 function App() {
   return (
@@ -36,13 +37,15 @@ function App() {
           <PrivateRoute path="/addproduct" exact component={AddProduct} />
           <PrivateRoute path="/editproduct" exact component={EditProduct} />
           <PrivateRoute path="/productinfo" exact component={ProductInfo} />
+          <PrivateRoute path="/sellerinfo" exact component={SellerInfo} />
           <Route path="/forgotpassword" exact component={ForgotPassword} />
           <Route path="/signup" exact component={SignUpScreen} />
           <Route path="/login" exact component={LoginScreen} />
           <PrivateRoute
             path="/outlook"
             component={() => {
-              window.location.href = "https://id.quicklaunch.io/StMarytx";
+              window.location.href =
+                "https://outlook.office.com/stmarytx.edu/?path=/mail/action/compose&to=emailname@domain.com&subject=Email%20Subject%20Here&body=some+content+goes+here";
               return null;
             }}
           />
