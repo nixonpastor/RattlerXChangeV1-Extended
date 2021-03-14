@@ -66,3 +66,13 @@ npm install reactstrap
 
 
 - checking my end. 
+
+-------------BACKEND-----------
+npm init -y when INSIDE backend folder 
+npm install express cors mongoose dotenv
+sudo install -g nodemon 
+npm install axios
+
+create a .env file INSIDE backend folder (i will send api key through discord)
+we can do -> nodemon server 
+to start server
