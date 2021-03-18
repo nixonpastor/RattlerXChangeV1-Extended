@@ -75,4 +75,5 @@ npm install axios
 
 create a .env file INSIDE backend folder (i will send api key through discord)
 we can do -> nodemon server 
+or npx nodemon server.js
 to start server
