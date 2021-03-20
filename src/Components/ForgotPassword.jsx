@@ -44,7 +44,7 @@ export default function ForgotPassword() {
                 required
               />
             </Form.Group>
-            <Button disabled={loading} className="w-100" type="submit">
+            <Button disabled={loading} className="w-100-1" type="submit">
               Reset Password
             </Button>
           </Form>
