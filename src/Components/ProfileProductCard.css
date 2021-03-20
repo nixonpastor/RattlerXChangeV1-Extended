@@ -17,6 +17,7 @@
   
   .PriceLabel {
     position: relative;
+    
   }
   
   .PriceLabel::after {
@@ -44,6 +45,8 @@
   .image {
     align-self: center;
     padding-left: 15px;
+    height: 200px;
+    width: 200px;
   }
   
   .cardIcons{
