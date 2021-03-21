@@ -12,21 +12,25 @@
   align-items: center;
   align-content: center;
   width: 500px;
-  height: 500px;
+  height: 800px;
   border: 1px solid grey;
   border-radius: 5px;
   box-shadow: 0 6px 20px rgba(56, 125, 255, 0.17);
+  margin: 30px;
 }
 
 .signUpBody {
   /* margin-top: -80px; */
-  height: 400px;
-  width: 350px;
+  height: 800px;
+  width: 500px;
+  margin: 10px;
 }
 
 .signUpForm {
   display: flex;
   flex-direction: column;
+  margin: 10px;
+
 }
 
 .emailField {
@@ -35,12 +39,13 @@
 
 .textInput {
   /*width: 200px; */
-  padding-bottom: 20px;
+  padding-bottom: 10px;
   display: flex;
   flex-direction: column;
   width: 100%;
   margin-top: 10px;
   margin-bottom: 10px;
+  align-self: center;
 
 }
 
@@ -72,13 +77,6 @@
   border-radius: 1px;
 }
 
-.w-100-2{
-  height: 39px;
-  width: 100%;
-  margin-right: 5px;
-  background-color: #003466;
-  text-decoration: none;
-  border: none;
-  color: white;
-  border-radius: 1px;
+.AlreadyAcc{
+  margin-bottom: 10px;
 }

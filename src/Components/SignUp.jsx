@@ -37,6 +37,37 @@ export default function SignUp() {
           <h2 className="signUpHeader">Sign Up</h2>
           {error && <Alert variant="danger">{error}</Alert>}
           <Form className="signUpForm" onSubmit={handleSubmit}>
+
+            <Form.Group className="InputField" id="FName">
+              <Form.Label className="fNameField">First Name</Form.Label>
+              <Form.Control
+                className="textInput"
+                type="text"
+                ref={emailRef}
+                required
+              />
+            </Form.Group>
+
+            <Form.Group className="InputField" id="LName">
+              <Form.Label className="lNameField">Last Name</Form.Label>
+              <Form.Control
+                className="textInput"
+                type="text"
+                ref={emailRef}
+                required
+              />
+            </Form.Group>
+
+            <Form.Group className="InputField" id="phNumber">
+              <Form.Label className="pNumberField">Phone Number</Form.Label>
+              <Form.Control
+                className="textInput"
+                type="text"
+                ref={emailRef}
+                required
+              />
+            </Form.Group>
+
             <Form.Group className="InputField" id="email">
               <Form.Label className="emailField">Email</Form.Label>
               <Form.Control
@@ -69,7 +100,7 @@ export default function SignUp() {
             </Button>
           </Form>
         </Card.Body>
-        <div className="w-100 text-center mt-2">
+        <div className="AlreadyAcc">
           Already have an account? <Link to="/login">Log In</Link>
         </div>
       </Card>
