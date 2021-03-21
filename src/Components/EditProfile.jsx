@@ -6,6 +6,12 @@ import "./Pages.css";
 // import { Alert } from "react-bootstrap";
 // import { useState, useRef } from "react";
 
+/*Pragyan Added*/
+import React, { useState } from "react";
+import { useAuth } from "../contexts/AuthContext";
+import { useHistory } from "react-router-dom";
+import { Alert } from "react-bootstrap";
+
 function EditProfile() {
   // ALL OF THIS COMMENT CODE WILL BE IMPLEMENTED LATER
   // const { currentUser, updatePassword, reauthenticate } = useAuth();
@@ -56,6 +62,9 @@ function EditProfile() {
   //   .finally(() => setLoading(false));
   // }
 
+  const { currentUser, logout } = useAuth();
+  const [error, setError] = useState("");
+
   return (
     <div className="pageContent">
       <div className="editProfile" id="stylized">
@@ -67,7 +76,7 @@ function EditProfile() {
               <input
                 type="text"
                 name="Enter First name"
-                placeholder="Enter First name"
+                placeholder={currentUser.email}
                 className="EditProfileInput"
               />
             </label>
@@ -76,7 +85,7 @@ function EditProfile() {
               <input
                 type="text"
                 name="Enter Last name"
-                placeholder="Enter Last name"
+                placeholder={currentUser.email}
                 className="EditProfileInput"
               />
             </label>
@@ -85,7 +94,7 @@ function EditProfile() {
               <input
                 type="text"
                 name="Enter Phone Number"
-                placeholder="Enter Phone Number"
+                placeholder={currentUser.email}
                 className="EditProfileInput"
               />
             </label>
@@ -104,7 +113,7 @@ function EditProfile() {
               <input
                 type="text"
                 name="Enter Address"
-                placeholder="Enter Address"
+                placeholder={currentUser.email}
                 className="EditProfileInput"
               />
             </label>

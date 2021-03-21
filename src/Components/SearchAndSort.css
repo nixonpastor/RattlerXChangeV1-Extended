@@ -11,15 +11,15 @@
 
 .searchTerm {
   height: 34px;
-  width: 500px;
+  width: 600px;
   text-align: left;
   padding-left: 10px;
   border-style: solid 1px;
 }
 
 .searchButton {
-  height: 39px;
-  width: 40px;
+  height: 40px;
+  width: 45px;
   margin: -40px;
   background-color: #003466;
   border: none;
@@ -43,4 +43,12 @@
 
 li {
   list-style-type: none;
+}
+
+.SortButtonDropDown{
+  height: 39px;
+  width: 135px;
+  margin: 5px;
+  background-color: #003466;
+  color: white;
 }

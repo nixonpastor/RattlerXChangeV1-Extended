@@ -3,6 +3,7 @@ import "./AddProduct.css";
 import "./Pages.css";
 import { useState } from "react";
 import axios from "axios";
+import { useAuth } from "../contexts/AuthContext";
 
 function AddProduct() {
   //setting values to nothing by default, setting state of current variables
@@ -11,6 +12,7 @@ function AddProduct() {
   const [productPrice, setProductPrice] = useState(null);
   const [productCondition, setProductCondition] = useState("");
   const [productCategory, setProductCategory] = useState("");
+  const { currentUser } = useAuth();
 
   //when user submits form, this function is called
   function onSubmit(e) {
@@ -23,6 +25,7 @@ function AddProduct() {
       productPrice: productPrice,
       productCondition: productCondition,
       productCategory: productCategory,
+      productEmail: currentUser.email,
     };
 
     console.log(product);

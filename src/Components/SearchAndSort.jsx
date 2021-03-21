@@ -8,9 +8,14 @@ function SearchAndSort(props) {
       </div>
 
       <div className="sortAndSearch">
-        <button type="submit" className="sortButton">
-          Sort By:
-        </button>
+
+        <select className="SortButtonDropDown">
+          <option value=''>Newest</option>
+          <option value='sort=oldest'>Oldest</option>
+          <option value='sort=-price'>Price: High-Low</option>
+          <option value='sort=price'>Price: Low-High</option>
+        </select>
+
         <input
           type="text"
           className="searchTerm"

@@ -13,6 +13,7 @@ router.route("/addProduct").post((req, res) => {
   const productPrice = Number(req.body.productPrice);
   const productCondition = req.body.productCondition;
   const productCategory = req.body.productCategory;
+  const productEmail = req.body.productEmail;
 
   const newProduct = new Product({
     productName,
@@ -20,6 +21,7 @@ router.route("/addProduct").post((req, res) => {
     productCondition,
     productCategory,
     productDescription,
+    productEmail,
   });
 
   newProduct
@@ -48,6 +50,7 @@ router.route("/update/:id").post((req, res) => {
       product.productPrice = Number(req.body.productPrice);
       product.productCondition = req.body.productCondition;
       product.productCategory = req.body.productCategory;
+      product.productEmail = req.body.productEmail;
 
       product
         .save()
