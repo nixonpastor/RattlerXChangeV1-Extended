@@ -8,6 +8,9 @@ export default function SignUp() {
   const emailRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
+  const firstNameRef = useRef();
+  const lastNameRef = useRef();
+  const phoneNumberRef = useRef();
   const { signup } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -37,13 +40,12 @@ export default function SignUp() {
           <h2 className="signUpHeader">Sign Up</h2>
           {error && <Alert variant="danger">{error}</Alert>}
           <Form className="signUpForm" onSubmit={handleSubmit}>
-
             <Form.Group className="InputField" id="FName">
               <Form.Label className="fNameField">First Name</Form.Label>
               <Form.Control
                 className="textInput"
                 type="text"
-                ref={emailRef}
+                ref={firstNameRef}
                 required
               />
             </Form.Group>
@@ -53,7 +55,7 @@ export default function SignUp() {
               <Form.Control
                 className="textInput"
                 type="text"
-                ref={emailRef}
+                ref={lastNameRef}
                 required
               />
             </Form.Group>
@@ -63,7 +65,7 @@ export default function SignUp() {
               <Form.Control
                 className="textInput"
                 type="text"
-                ref={emailRef}
+                ref={phoneNumberRef}
                 required
               />
             </Form.Group>

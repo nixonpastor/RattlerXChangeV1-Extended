@@ -14,13 +14,12 @@ const userSchema = new Schema({
     required: true,
     trim: true,
   },
-  middileInit: {
-    type: String,
-    required: false,
-    trim: true,
-    maxlength: 2,
-  },
   lastName: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  phoneNumber: {
     type: String,
     required: true,
     trim: true,
