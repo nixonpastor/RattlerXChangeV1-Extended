@@ -4,12 +4,31 @@ import "./Card.css";
 import SearchAndSortRender from "./SearchAndSortRender";
 import Footer from "./Footer";
 import "./Pages.css";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 function Home() {
+  const [products, setProducts] = useState([]);
+  // const [isLoading, setLoading] = useState(false);
+
+  useEffect(() => {
+    function getProducts() {
+      axios.get("http://localhost:5000/products/").then((res) => {
+        setProducts(res.data);
+        console.log(products);
+      });
+    }
+    getProducts();
+  }, [products]);
+
   return (
     <div className="pageContent">
       <SearchAndSortRender Title="Main Menu" />
       <ul className="CardsContainer">
+        {/* {products.map(function (product) {
+
+      })
+      } */}
         <CardRender text="St. Mary's Shirt" value="$80" />
         <CardRender text="iPhone 12" value="$800" />
         <CardRender text="macBook Pro 2020" value="$1200" />

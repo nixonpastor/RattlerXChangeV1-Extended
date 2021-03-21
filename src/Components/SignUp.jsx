@@ -8,6 +8,9 @@ export default function SignUp() {
   const emailRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
+  const firstNameRef = useRef();
+  const lastNameRef = useRef();
+  const phoneNumberRef = useRef();
   const { signup } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -37,6 +40,36 @@ export default function SignUp() {
           <h2 className="signUpHeader">Sign Up</h2>
           {error && <Alert variant="danger">{error}</Alert>}
           <Form className="signUpForm" onSubmit={handleSubmit}>
+            <Form.Group className="InputField" id="FName">
+              <Form.Label className="fNameField">First Name</Form.Label>
+              <Form.Control
+                className="textInput"
+                type="text"
+                ref={firstNameRef}
+                required
+              />
+            </Form.Group>
+
+            <Form.Group className="InputField" id="LName">
+              <Form.Label className="lNameField">Last Name</Form.Label>
+              <Form.Control
+                className="textInput"
+                type="text"
+                ref={lastNameRef}
+                required
+              />
+            </Form.Group>
+
+            <Form.Group className="InputField" id="phNumber">
+              <Form.Label className="pNumberField">Phone Number</Form.Label>
+              <Form.Control
+                className="textInput"
+                type="text"
+                ref={phoneNumberRef}
+                required
+              />
+            </Form.Group>
+
             <Form.Group className="InputField" id="email">
               <Form.Label className="emailField">Email</Form.Label>
               <Form.Control
@@ -69,7 +102,7 @@ export default function SignUp() {
             </Button>
           </Form>
         </Card.Body>
-        <div className="w-100 text-center mt-2">
+        <div className="AlreadyAcc">
           Already have an account? <Link to="/login">Log In</Link>
         </div>
       </Card>
