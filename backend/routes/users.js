@@ -32,4 +32,21 @@ router.route("/:id").get((req, res) => {
     .catch((err) => res.status(400).json("Error: " + err));
 });
 
+router.route("/update/:id").post((req, res) => {
+  User.findById(req.params.id)
+    .then((user) => {
+      user.email = req.body.email;
+      user.firstName = req.body.firstName;
+      product.lastName = req.body.lastName;
+      product.phoneNumber = req.body.phoneNumber;
+
+      user
+        .save()
+        .then(() => res.json("User updated!"))
+        .catch((err) => res.status(400).json("Error: " + err));
+    })
+    .catch((err) => res.status(400).json("Error: " + err));
+});
+
+
 module.exports = router;
