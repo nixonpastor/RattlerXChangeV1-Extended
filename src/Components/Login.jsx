@@ -1,6 +1,6 @@
 import { React, useRef, useState } from "react";
 import { Form, Button, Card, Alert } from "react-bootstrap";
-import "./SignUp.css";
+import "./SignIn.css";
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 
@@ -27,7 +27,9 @@ export default function Login() {
   }
 
   return (
+   
     <>
+      <div>
       <Card className="signUpCard">
         <Card.Body className="signUpBody">
           <h2 className="signUpHeader">Log In</h2>
@@ -63,6 +65,7 @@ export default function Login() {
           Need an account? <Link to="/signup">Sign up</Link>
         </div>
       </Card>
+      </div>
     </>
   );
 }
