@@ -12,7 +12,7 @@
   align-items: center;
   align-content: center;
   width: 500px;
-  height: 800px;
+  height: 650px;
   border: 1px solid grey;
   border-radius: 5px;
   box-shadow: 0 6px 20px rgba(56, 125, 255, 0.17);
@@ -21,7 +21,7 @@
 
 .signUpBody {
   /* margin-top: -80px; */
-  height: 800px;
+  height: 600px;
   width: 500px;
   margin: 10px;
 }
@@ -78,5 +78,6 @@
 }
 
 .AlreadyAcc{
+  margin-top: 10px;
   margin-bottom: 10px;
 }
