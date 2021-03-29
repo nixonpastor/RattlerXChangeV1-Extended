@@ -28,6 +28,7 @@ function AddProduct() {
       productEmail: currentUser.email,
     };
 
+
     console.log(product);
     //making a POST request to this url with the product the user wants to add
     axios
@@ -60,12 +61,15 @@ function AddProduct() {
   }
 
   function onChangeProductCondition(e) {
+    console.log(e.target.value)
     setProductCondition(e.target.value);
   }
 
   function onChangeProductCategory(e) {
+    console.log(e.target.value)
     setProductCategory(e.target.value);
   }
+
 
   return (
     <div className="pageContent">
@@ -106,16 +110,26 @@ function AddProduct() {
                 onChange={onChangeProductCondition}
               />
             </label>
+
             <label className="productCategory">
               Category:
-              <input
-                type="text"
+
+              <select
                 name="Select Category"
                 placeholder="Select Category"
                 className="addProductInput"
                 onChange={onChangeProductCategory}
-              />
+                >
+
+                <option value="">Select Category</option>
+                <option value='Electronics'>Electronics</option>
+                <option value='DormDecor'>Dorm Decor</option>
+                <option value='Books'>Books</option>
+                <option value='Apparel'>Apparel</option>
+
+              </select>
             </label>
+
             <label className="productDescription">
               Description:
               <input
