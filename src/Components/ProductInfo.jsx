@@ -115,21 +115,45 @@ function ProductInfo(props) {
 
             <div className="buttons">
               <div>
-                <button type="submit" className="sellerInfoButton">
+                <Link to="/outlook">
+                <button type="submit" className="contactSellerButton">
                   Contact Seller
                   <div class="buttonTextSpace" />
                   <i class="fas fa-envelope"></i>
                 </button>
+                </Link>
               </div>
               <div class="divider" />
               <div>
+                <Link to="/wishlist">
                 <button type="submit" className="wishlistButton">
-                  Wishlist
+                  Add to My Wishlist
                   <div class="buttonTextSpace" />
                   <i class="fas fa-heart"></i>
                 </button>
+                </Link>
               </div>
             </div>
+
+
+            <div lassName="sellerInfoButtonDiv">
+            <div class="buttonSpace" />
+
+              <Link to="/sellerInfo">          
+              <button to= {{
+                pathname: "/sellerInfo",
+                productProps: {
+                  productId: product._id,
+                }}}
+
+               className="sellerInfoButton">
+                Seller Info
+                <div class="buttonTextSpace" />
+                <i class="fas fa-user"></i>
+              </button>
+              </Link>  
+            </div>
+
           </form>
         </div>
       </div>

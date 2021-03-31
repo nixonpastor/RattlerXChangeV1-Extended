@@ -1,5 +1,5 @@
 import "./Card.css";
-import SearchAndSortRender from "./SearchAndSortRender";
+import SearchAndSort from "./SearchAndSort";
 import Footer from "./Footer";
 import "./Pages.css";
 import { useEffect, useState } from "react";
@@ -26,7 +26,7 @@ function Home() {
 
   return (
     <div className="pageContent">
-      <SearchAndSortRender Title="Main Menu" />
+      <SearchAndSort Title="Main Menu" />
       <ul className="CardsContainer">
         {products.map(
           (product) => (

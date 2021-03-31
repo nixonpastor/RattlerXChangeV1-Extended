@@ -2,8 +2,12 @@ import Footer from "./Footer";
 import "./SellerInfo.css";
 import CardRender from "./CardRender";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { useState, useEffect } from "react";
 
 function SellerProfile(props) {
+
+
   return (
     <div className="pageContent">
       <div>

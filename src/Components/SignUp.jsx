@@ -45,6 +45,7 @@ export default function SignUp() {
               <Form.Control
                 className="textInput"
                 type="text"
+                placeholder = "Please enter your first name."
                 ref={firstNameRef}
                 required
               />
@@ -55,6 +56,7 @@ export default function SignUp() {
               <Form.Control
                 className="textInput"
                 type="text"
+                placeholder = "Please enter your last name."
                 ref={lastNameRef}
                 required
               />
@@ -65,6 +67,7 @@ export default function SignUp() {
               <Form.Control
                 className="textInput"
                 type="text"
+                placeholder = "Please enter your phone number."
                 ref={phoneNumberRef}
                 required
               />
@@ -75,6 +78,7 @@ export default function SignUp() {
               <Form.Control
                 className="textInput"
                 type="email"
+                placeholder = "Please enter your Stmary's email address ."
                 ref={emailRef}
                 required
               />
@@ -84,6 +88,7 @@ export default function SignUp() {
               <Form.Control
                 className="textInput"
                 type="password"
+                placeholder = "Please enter your Password. 6 characters Minimum with a UpperCase character."
                 ref={passwordRef}
                 required
               />
@@ -93,6 +98,7 @@ export default function SignUp() {
               <Form.Control
                 className="textInput"
                 type="password"
+                placeholder = "Please Re-enter your password."
                 ref={passwordConfirmRef}
                 required
               />

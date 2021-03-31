@@ -40,6 +40,7 @@ export default function Login() {
               <Form.Control
                 className="textInput"
                 type="email"
+                placeholder = "Please enter your St Mary's Email Address."
                 ref={emailRef}
                 required
               />
@@ -49,6 +50,7 @@ export default function Login() {
               <Form.Control
                 className="textInput"
                 type="password"
+                placeholder = "Please enter your Password."
                 ref={passwordRef}
                 required
               />
