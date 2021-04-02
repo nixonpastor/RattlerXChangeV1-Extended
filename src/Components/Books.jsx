@@ -1,4 +1,3 @@
-import CardRender from "./CardRender";
 import SearchAndSortRender from "./SearchAndSortRender";
 import Footer from "./Footer";
 import "./Pages.css";
@@ -7,11 +6,10 @@ import axios from "axios";
 import Card from "./Card";
 import { Link } from "react-router-dom";
 
-
 function Books() {
-
   const [products, setProducts] = useState([]);
   const [isLoading, setLoading] = useState(true);
+  const books = [];
 
   useEffect(() => {
     function getProducts() {
@@ -26,33 +24,48 @@ function Books() {
     getProducts();
   }, [products, isLoading]);
 
+  products.map((product) => {
+    if (product.productCategory === "Books") {
+      books.push(product);
+    }
+    return books;
+  });
+
+  if (books.length === 0) {
+    return (
+      <div className="pageContent">
+        <SearchAndSortRender Title="Books" />
+        <h1
+          style={{
+            textAlign: "center",
+          }}
+        >
+          No Books Available
+        </h1>
+        <Footer />
+      </div>
+    );
+  }
   return (
     <div className="pageContent">
       <SearchAndSortRender Title="Books" />
       <ul className="CardsContainer">
-      {products.map(
-          (product) => (
-            product.productCategory === "Books"? ( 
-            <Link
-              style={{
-                textDecoration: "none",
-                color: "black",
-              }}
-              to={{
-                pathname: "/productInfo",
-                productProps: {
-                  productId: product._id,
-                },
-              }}
-            >
-              <Card
-                text={product.productName}
-                value={"$" + product.productPrice}
-              />
-            </Link>
-          )
-         : null
-      ))}
+        {books.map((book) => (
+          <Link
+            style={{
+              textDecoration: "none",
+              color: "black",
+            }}
+            to={{
+              pathname: "/productInfo",
+              productProps: {
+                productId: book._id,
+              },
+            }}
+          >
+            <Card text={book.productName} value={"$" + book.productPrice} />
+          </Link>
+        ))}
       </ul>
       <Footer />
     </div>
