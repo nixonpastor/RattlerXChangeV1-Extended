@@ -7,6 +7,10 @@ import React, { useState } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import { useHistory } from "react-router-dom";
 import { Alert } from "react-bootstrap";
+import ProfileProductCard from "./ProfileProductCard";
+
+import { useEffect } from "react";
+import axios from "axios";
 
 function Profile(props) {
   const uploadedImage = React.useRef(null);
@@ -15,6 +19,23 @@ function Profile(props) {
   //getting the logged in user
   const { currentUser, logout } = useAuth();
   const [error, setError] = useState("");
+
+  //user products only
+  const [products, setProducts] = useState([]);
+  const [isLoading, setLoading] = useState(true);
+
+  useEffect(() => {
+    function getProducts() {
+      axios.get("http://localhost:5000/products/").then((res) => {
+        if (isLoading) {
+          setProducts(res.data);
+          console.log(products);
+          setLoading(false);
+        }
+      });
+    }
+    getProducts();
+  }, [products, isLoading]);
 
   const handleImageUpload = (e) => {
     const [file] = e.target.files;
@@ -117,9 +138,17 @@ function Profile(props) {
         </div>
 
         <div className="cards">
-          <ProfileProductCardRender text="New Product" value="$100" />
-          <ProfileProductCardRender text="New Product2" value="$200" />
-          <ProfileProductCardRender text="New Product3" value="$300" />
+          <ul className="ProfileCardsContainer">
+            {products.map((product) =>
+              product.productEmail === currentUser.email ? (
+                <ProfileProductCard
+                  text={product.productName}
+                  value={"$" + product.productPrice}
+                  img={product.productImage}
+                />
+              ) : null
+            )}
+          </ul>
         </div>
       </div>
       <Footer />

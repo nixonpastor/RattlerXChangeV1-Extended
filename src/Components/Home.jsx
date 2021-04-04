@@ -1,44 +1,57 @@
-import CardRender from "./CardRender";
-import ProfileProductCardRender from "./ProfileProductCardRender";
 import "./Card.css";
-import SearchAndSortRender from "./SearchAndSortRender";
+import SearchAndSort from "./SearchAndSort";
 import Footer from "./Footer";
 import "./Pages.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Card from "./Card";
+import { Link } from "react-router-dom";
 
 function Home() {
   const [products, setProducts] = useState([]);
-  // const [isLoading, setLoading] = useState(false);
+  const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
     function getProducts() {
       axios.get("http://localhost:5000/products/").then((res) => {
-        setProducts(res.data);
-        console.log(products);
+        if (isLoading) {
+          setProducts(res.data);
+          console.log(products);
+          setLoading(false);
+        }
       });
     }
     getProducts();
-  }, [products]);
+  }, [products, isLoading]);
 
   return (
     <div className="pageContent">
-      <SearchAndSortRender Title="Main Menu" />
+      <SearchAndSort Title="Main Menu" />
       <ul className="CardsContainer">
-        {/* {products.map(function (product) {
-
-      })
-      } */}
-        <CardRender text="St. Mary's Shirt" value="$80" />
-        <CardRender text="iPhone 12" value="$800" />
-        <CardRender text="macBook Pro 2020" value="$1200" />
-        <CardRender text="Desk Lamp" value="$100" />
-        <CardRender text="Curtains" value="$30" />
-        <CardRender text="Nike Hoodie" value="$80" />
-        <CardRender text="Calculus I" value="$150" />
-        <ProfileProductCardRender text="New Product" value="$100" />
-        <ProfileProductCardRender text="New Product2" value="$200" />
-        <ProfileProductCardRender text="New Product3" value="$300" />
+        {products.map(
+          (product) => (
+            /* product.productCategory !== "Electronics" ? ( */
+            <Link
+              style={{
+                textDecoration: "none",
+                color: "black",
+              }}
+              to={{
+                pathname: "/productInfo",
+                productProps: {
+                  productId: product._id,
+                },
+              }}
+            >
+              <Card
+                text={product.productName}
+                value={"$" + product.productPrice}
+                img={product.productImage}
+              />
+            </Link>
+          )
+          /* ) : null */
+        )}
       </ul>
       <Footer />
     </div>

@@ -40,6 +40,7 @@ export default function ForgotPassword() {
               <Form.Control
                 className="textInput"
                 type="email"
+                placeholder = "Please enter your St. Mary's Email Address."
                 ref={emailRef}
                 required
               />
