@@ -46,6 +46,7 @@ function Home() {
               <Card
                 text={product.productName}
                 value={"$" + product.productPrice}
+                img={product.productImage}
               />
             </Link>
           )

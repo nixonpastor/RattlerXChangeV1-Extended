@@ -63,7 +63,11 @@ function Books() {
               },
             }}
           >
-            <Card text={book.productName} value={"$" + book.productPrice} />
+            <Card
+              text={book.productName}
+              value={"$" + book.productPrice}
+              img={book.productImage}
+            />
           </Link>
         ))}
       </ul>

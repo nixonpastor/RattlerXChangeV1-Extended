@@ -8,7 +8,6 @@ import Card from "./Card";
 import { Link } from "react-router-dom";
 
 function Apparel() {
-
   const [products, setProducts] = useState([]);
   const [isLoading, setLoading] = useState(true);
 
@@ -29,29 +28,29 @@ function Apparel() {
     <div className="pageContent">
       <SearchAndSortRender Title="Apparel" />
       <ul className="CardsContainer">
-        {products.map(
-          (product) => (
-            product.productCategory === "Apparel" || product.productCategory === "apparel" ? (
-              <Link
-                style={{
-                  textDecoration: "none",
-                  color: "black",
-                }}
-                to={{
-                  pathname: "/productInfo",
-                  productProps: {
-                    productId: product._id,
-                  },
-                }}
-              >
-                <Card
-                  text={product.productName}
-                  value={"$" + product.productPrice}
-                />
-              </Link>
-            )
-              : null
-          ))}
+        {products.map((product) =>
+          product.productCategory === "Apparel" ||
+          product.productCategory === "apparel" ? (
+            <Link
+              style={{
+                textDecoration: "none",
+                color: "black",
+              }}
+              to={{
+                pathname: "/productInfo",
+                productProps: {
+                  productId: product._id,
+                },
+              }}
+            >
+              <Card
+                text={product.productName}
+                value={"$" + product.productPrice}
+                img={product.productImage}
+              />
+            </Link>
+          ) : null
+        )}
       </ul>
       <Footer />
     </div>

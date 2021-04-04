@@ -27,6 +27,10 @@ const productSchema = new Schema({
     type: String,
     required: true,
   },
+  productImage: {
+    type: String,
+    default: "Rattler.jpeg",
+  },
 });
 
 const Product = mongoose.model("Product", productSchema);

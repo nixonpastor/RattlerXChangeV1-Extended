@@ -9,9 +9,8 @@ import { useHistory } from "react-router-dom";
 import { Alert } from "react-bootstrap";
 import ProfileProductCard from "./ProfileProductCard";
 
-import { useEffect} from "react";
+import { useEffect } from "react";
 import axios from "axios";
-
 
 function Profile(props) {
   const uploadedImage = React.useRef(null);
@@ -37,7 +36,6 @@ function Profile(props) {
     }
     getProducts();
   }, [products, isLoading]);
-
 
   const handleImageUpload = (e) => {
     const [file] = e.target.files;
@@ -141,18 +139,17 @@ function Profile(props) {
 
         <div className="cards">
           <ul className="ProfileCardsContainer">
-            {products.map(
-            (product) => (
+            {products.map((product) =>
               product.productEmail === currentUser.email ? (
-                <ProfileProductCard 
-                text={product.productName} 
-                value={"$" + product.productPrice} />
-              ) :
-              null
-              ))}
+                <ProfileProductCard
+                  text={product.productName}
+                  value={"$" + product.productPrice}
+                  img={product.productImage}
+                />
+              ) : null
+            )}
           </ul>
         </div>
-        
       </div>
       <Footer />
     </div>

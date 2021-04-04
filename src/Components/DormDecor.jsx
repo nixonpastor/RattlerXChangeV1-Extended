@@ -8,7 +8,6 @@ import Card from "./Card";
 import { Link } from "react-router-dom";
 
 function DormDecor() {
-
   const [products, setProducts] = useState([]);
   const [isLoading, setLoading] = useState(true);
 
@@ -29,9 +28,8 @@ function DormDecor() {
     <div className="pageContent">
       <SearchAndSortRender Title="Dorm Decor" />
       <ul className="CardsContainer">
-      {products.map(
-          (product) => (
-            product.productCategory === "DormDecor" ? ( 
+        {products.map((product) =>
+          product.productCategory === "DormDecor" ? (
             <Link
               style={{
                 textDecoration: "none",
@@ -47,11 +45,11 @@ function DormDecor() {
               <Card
                 text={product.productName}
                 value={"$" + product.productPrice}
+                img={product.productImage}
               />
             </Link>
-          )
-         : null
-      ))}
+          ) : null
+        )}
       </ul>
       <Footer />
     </div>
