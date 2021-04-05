@@ -10,10 +10,8 @@ function SearchAndSort(props) {
       <div className="sortAndSearch">
 
         <select className="SortButtonDropDown">
-          <option value=''>Newest</option>
-          <option value='sort=oldest'>Oldest</option>
-          <option value='sort=-price'>Price: High-Low</option>
-          <option value='sort=price'>Price: Low-High</option>
+          <option value=''>New</option>
+          <option value='sort=oldest'>Used</option>
         </select>
 
         <input

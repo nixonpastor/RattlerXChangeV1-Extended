@@ -1,5 +1,27 @@
 const router = require("express").Router();
 let User = require("../models/user.model");
+const multer = require("multer");
+
+//defining storage for images
+const storage = multer.diskStorage({
+  //file destinations
+  destination: function (request, file, callback) {
+    callback(null, "../public/userImages");
+  },
+
+  //add back file extension
+  filename: function (request, file, callback) {
+    callback(null, Date.now() + file.originalname);
+  },
+});
+
+//upload paramters for multer
+const upload = multer({
+  storage: storage,
+  limits: {
+    fieldsize: 1024 * 1024 * 3,
+  },
+});
 
 router.route("/").get((req, res) => {
   User.find()
@@ -7,17 +29,19 @@ router.route("/").get((req, res) => {
     .catch((err) => res.status(400).json("Error: " + err));
 });
 
-router.route("/addUser").post((req, res) => {
+router.route("/addUser").post(upload.single("photo"), (req, res) => {
   const firstName = req.body.firstName;
   const lastName = req.body.lastName;
   const phoneNumber = req.body.phoneNumber;
   const email = req.body.email;
+  const userImage = req.body.userImage;
 
   const newUser = new User({
     email,
     firstName,
     lastName,
     phoneNumber,
+    userImage,
   });
 
   newUser

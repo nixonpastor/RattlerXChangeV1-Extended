@@ -11,13 +11,6 @@
     font-size: 20px;
   }
   
-
-  .imageProductInfo {
-    float: left;
-    align-items: left;
-    width: 35%;
-  }
-  
   .productInfoImageButton{
     height: 450px;
     width: 400px;
@@ -119,6 +112,21 @@
     margin-top: 5px;
   }
 
+  .productImageProductInfo{
+    height: 300 px;
+    width: 300px;
+    margin-left: 50px;
+    margin-top: 50px;
+  }
+
+  .imageProductInfo {
+    /*margin-top: 50px;
+    margin-left: 30px;
+    float: center;
+    align-items: center;
+    width: 35%; */
+    width: 400px;
+  }
 
 
   

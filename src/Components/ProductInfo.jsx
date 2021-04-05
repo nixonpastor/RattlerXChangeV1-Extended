@@ -57,13 +57,16 @@ function ProductInfo(props) {
     <div className="pageContent">
       <h2 className="productInfoHeader">Product Information</h2>
       <div className="mainProductInfo">
+        
         <div className="imageProductInfo">
+          {/*
           <button
-            className="productInfoImageButton" /*style="background: url('Rattler.jpeg')"*/
+            className="productInfoImageButton" /*style="background: url('Rattler.jpeg')"
           >
-            {" "}
             Image Goes Here
           </button>
+          */}
+          <img className="productImageProductInfo" alt ={product.productName} src={"images/" + product.productImage }/>
         </div>
         <div className="productLabels">
           <form className="productInfoForm">
@@ -138,14 +141,15 @@ function ProductInfo(props) {
 
             <div lassName="sellerInfoButtonDiv">
             <div class="buttonSpace" />
-
-              <Link to="/sellerInfo">          
-              <button to= {{
-                pathname: "/sellerInfo",
+        
+              
+            <Link to={{
+                pathname: "/sellerinfo",
                 productProps: {
                   productId: product._id,
-                }}}
-
+                },
+              }}>    
+              <button 
                className="sellerInfoButton">
                 Seller Info
                 <div class="buttonTextSpace" />

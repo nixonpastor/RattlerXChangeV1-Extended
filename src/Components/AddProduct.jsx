@@ -123,13 +123,16 @@ function AddProduct() {
             </label>
             <label className="productCondition">
               Product Condition :
-              <input
-                type="text"
+              <select
                 name="productCondition"
-                placeholder="Enter Product Condition"
+                placeholder="Select Condition"
                 className="addProductInput"
                 onChange={onChangeProductCondition}
-              />
+              >
+                <option value="">Select Category</option>
+                <option value="Electronics">New</option>
+                <option value="DormDecor">Used</option>
+              </select>
             </label>
 
             <label className="productCategory">

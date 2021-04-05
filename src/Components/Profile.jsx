@@ -37,6 +37,7 @@ function Profile(props) {
     getProducts();
   }, [products, isLoading]);
 
+  /*
   const handleImageUpload = (e) => {
     const [file] = e.target.files;
     if (file) {
@@ -49,7 +50,7 @@ function Profile(props) {
       reader.readAsDataURL(file);
     }
   };
-
+  */
   async function handleLogout() {
     setError("");
     try {
@@ -59,17 +60,20 @@ function Profile(props) {
       setError("Failed to log out");
     }
   }
+  
 
   return (
     <div className="pageContent">
-      <h1 className="title">Welcome</h1>
+      <h1 className="title"> Welcome </h1>
       <div className="rowUserProfileProducts">
         <div className="userInfo">
           <div className="ProfileTag">
             <b className="tag">My Profile</b>
           </div>
 
-          {/* Would like to link to file browser */}
+          {/*   
+           Would like to link to file browser      
+          
           <div
             style={{
               display: "flex",
@@ -109,6 +113,21 @@ function Profile(props) {
             </div>
             Click to Upload an Image
           </div>
+          */}
+
+          <div className="userImageDiv">
+            <img className="userImageContainer" src="logo512.png" />
+          </div>
+
+          <div className="uploadImageDiv">
+              <input
+                type="file"
+                name="photo"
+                accept="image/*"
+                className="userImageUploader"
+                //onChange={onChangeProductImage}
+              />
+          </div>
 
           <div className="Name">Full Name</div>
 
@@ -117,7 +136,7 @@ function Profile(props) {
 
           <li className="Email">Email: {currentUser.email}</li>
           <div className="productsListed">No. of Products Listed</div>
-          <div className="hyper">
+          <div className="hyper"> 
             <li className="link">
               <Link to="/editProfile" className="profilelink">
                 Edit Profile
