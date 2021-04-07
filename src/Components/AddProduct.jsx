@@ -20,6 +20,7 @@ function AddProduct() {
     //prevents default html form actions and allows us to customize our own
     e.preventDefault();
 
+    //setting product object to pass as a parameter for post request
     const data = new FormData();
     data.append("photo", productImage);
     data.append("productName", productName);
@@ -28,17 +29,6 @@ function AddProduct() {
     data.append("productCondition", productCondition);
     data.append("productCategory", productCategory);
     data.append("productEmail", currentUser.email);
-
-    //setting a product object to the current values from the form
-    // const product = {
-    //   productName: productName,
-    //   productDescription: productDescription,
-    //   productPrice: productPrice,
-    //   productCondition: productCondition,
-    //   productCategory: productCategory,
-    //   productEmail: currentUser.email,
-    //   productImage: productImage,
-    // };
 
     console.log(data);
     //making a POST request to this url with the product the user wants to add

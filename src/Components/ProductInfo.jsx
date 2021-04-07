@@ -29,6 +29,7 @@ function ProductInfo(props) {
     productCondition: "No Condition Found",
     productCategory: "No Category Found",
     productDescription: "Null",
+    productEmail: "",
     __v: 0,
   });
   const [isLoading, setLoading] = useState(true);
@@ -57,7 +58,6 @@ function ProductInfo(props) {
     <div className="pageContent">
       <h2 className="productInfoHeader">Product Information</h2>
       <div className="mainProductInfo">
-        
         <div className="imageProductInfo">
           {/*
           <button
@@ -66,7 +66,11 @@ function ProductInfo(props) {
             Image Goes Here
           </button>
           */}
-          <img className="productImageProductInfo" alt ={product.productName} src={"images/" + product.productImage }/>
+          <img
+            className="productImageProductInfo"
+            alt={product.productName}
+            src={"images/" + product.productImage}
+          />
         </div>
         <div className="productLabels">
           <form className="productInfoForm">
@@ -119,45 +123,43 @@ function ProductInfo(props) {
             <div className="buttons">
               <div>
                 <Link to="/outlook">
-                <button type="submit" className="contactSellerButton">
-                  Contact Seller
-                  <div class="buttonTextSpace" />
-                  <i class="fas fa-envelope"></i>
-                </button>
+                  <button type="submit" className="contactSellerButton">
+                    Contact Seller
+                    <div class="buttonTextSpace" />
+                    <i class="fas fa-envelope"></i>
+                  </button>
                 </Link>
               </div>
               <div class="divider" />
               <div>
                 <Link to="/wishlist">
-                <button type="submit" className="wishlistButton">
-                  Add to My Wishlist
-                  <div class="buttonTextSpace" />
-                  <i class="fas fa-heart"></i>
-                </button>
+                  <button type="submit" className="wishlistButton">
+                    Add to My Wishlist
+                    <div class="buttonTextSpace" />
+                    <i class="fas fa-heart"></i>
+                  </button>
                 </Link>
               </div>
             </div>
 
-
             <div lassName="sellerInfoButtonDiv">
-            <div class="buttonSpace" />
-        
-              
-            <Link to={{
-                pathname: "/sellerinfo",
-                productProps: {
-                  productId: product._id,
-                },
-              }}>    
-              <button 
-               className="sellerInfoButton">
-                Seller Info
-                <div class="buttonTextSpace" />
-                <i class="fas fa-user"></i>
-              </button>
-              </Link>  
-            </div>
+              <div class="buttonSpace" />
 
+              <Link
+                to={{
+                  pathname: "/sellerinfo",
+                  productProps: {
+                    productId: product._id,
+                  },
+                }}
+              >
+                <button className="sellerInfoButton">
+                  Seller Info
+                  <div class="buttonTextSpace" />
+                  <i class="fas fa-user"></i>
+                </button>
+              </Link>
+            </div>
           </form>
         </div>
       </div>
