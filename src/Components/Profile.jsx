@@ -3,7 +3,7 @@ import Footer from "./Footer";
 import "./Profile.css";
 import "./Pages.css";
 import ProfileProductCardRender from "./ProfileProductCardRender";
-import React, { useState } from "react";
+import React, { useState, useReducer } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import { useHistory } from "react-router-dom";
 import { Alert } from "react-bootstrap";
@@ -13,8 +13,8 @@ import { useEffect } from "react";
 import axios from "axios";
 
 function Profile(props) {
-  const uploadedImage = React.useRef(null);
-  const imageUploader = React.useRef(null);
+  // const uploadedImage = React.useRef(null);
+  // const imageUploader = React.useRef(null);
   const history = useHistory();
   //getting the logged in user
   const { currentUser, logout } = useAuth();
@@ -23,6 +23,9 @@ function Profile(props) {
   //user products only
   const [products, setProducts] = useState([]);
   const [isLoading, setLoading] = useState(true);
+  const [isLoading2, setLoading2] = useState(true);
+  const [users, setUsers] = useState([]);
+  const [user, setUser] = useState([]);
 
   useEffect(() => {
     function getProducts() {
@@ -33,9 +36,23 @@ function Profile(props) {
           setLoading(false);
         }
       });
+      axios.get("http://localhost:5000/users/").then((res) => {
+        if (isLoading2) {
+          setUsers(res.data);
+          console.log(users);
+          setLoading2(false);
+        }
+      });
+      users.map((user) => {
+        if (user.email === currentUser.email) {
+          setUser(user);
+        }
+        return user;
+      });
+      console.log(user);
     }
     getProducts();
-  }, [products, isLoading]);
+  }, [products, isLoading, isLoading2, users, currentUser.email, user]);
 
   /*
   const handleImageUpload = (e) => {
@@ -60,7 +77,6 @@ function Profile(props) {
       setError("Failed to log out");
     }
   }
-  
 
   return (
     <div className="pageContent">
@@ -116,10 +132,14 @@ function Profile(props) {
           */}
 
           <div className="userImageDiv">
-            <img className="userImageContainer" src="logo512.png" />
+            <img
+              className="userImageContainer"
+              alt="Profile"
+              src={"userProfile/" + user.profileImage}
+            />
           </div>
 
-          <div className="uploadImageDiv">
+          {/* <div className="uploadImageDiv">
               <input
                 type="file"
                 name="photo"
@@ -127,7 +147,7 @@ function Profile(props) {
                 className="userImageUploader"
                 //onChange={onChangeProductImage}
               />
-          </div>
+          </div> */}
 
           <div className="Name">Full Name</div>
 
@@ -136,9 +156,17 @@ function Profile(props) {
 
           <li className="Email">Email: {currentUser.email}</li>
           <div className="productsListed">No. of Products Listed</div>
-          <div className="hyper"> 
+          <div className="hyper">
             <li className="link">
-              <Link to="/editProfile" className="profilelink">
+              <Link
+                className="profilelink"
+                to={{
+                  pathname: "/editProfile",
+                  userProps: {
+                    userEmail: currentUser.email,
+                  },
+                }}
+              >
                 Edit Profile
               </Link>
             </li>

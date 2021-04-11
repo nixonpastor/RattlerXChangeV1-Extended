@@ -2,17 +2,18 @@ import Footer from "./Footer";
 import "./EditProfile.css";
 import "./Pages.css";
 // import { useAuth } from "../contexts/AuthContext";
-// import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 // import { Alert } from "react-bootstrap";
 // import { useState, useRef } from "react";
 
 /*Pragyan Added*/
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useAuth } from "../contexts/AuthContext";
-import { useHistory } from "react-router-dom";
-import { Alert } from "react-bootstrap";
+// import { useHistory } from "react-router-dom";
+// import { Alert } from "react-bootstrap";
+import axios from "axios";
 
-function EditProfile() {
+function EditProfile(props) {
   // ALL OF THIS COMMENT CODE WILL BE IMPLEMENTED LATER
   // const { currentUser, updatePassword, reauthenticate } = useAuth();
   // const [error, setError] = useState("");
@@ -64,19 +65,83 @@ function EditProfile() {
 
   const { currentUser, logout } = useAuth();
   const [error, setError] = useState("");
+  const [profileImage, setProfileImage] = useState("defaultProfilePicture.png");
+  const [isLoading, setLoading] = useState(true);
+  const [users, setUsers] = useState([]);
+  const [user, setUser] = useState([]);
+  const history = useHistory();
+
+  useEffect(() => {
+    function getUsers() {
+      axios.get("http://localhost:5000/users/").then((res) => {
+        if (isLoading) {
+          setUsers(res.data);
+          console.log(users);
+          setLoading(false);
+        }
+      });
+
+      users.map((user) => {
+        if (user.email === props.location.userProps.userEmail) {
+          setUser(user);
+        }
+        return user;
+      });
+    }
+    getUsers();
+  }, [users, isLoading, user, props.location.userProps.userEmail]);
+
+  function handleSubmit(e) {
+    //prevents default html form actions and allows us to customize our own
+    e.preventDefault();
+
+    //setting product object to pass as a parameter for post request
+    const updatedUser = new FormData();
+    updatedUser.append("photo", profileImage);
+    updatedUser.append("id", user._id);
+    updatedUser.append("profileFirstName", user.firstName);
+    updatedUser.append("profileLastName", user.lastName);
+    updatedUser.append("profilePhoneNumber", user.phoneNumber);
+    updatedUser.append("profileEmail", currentUser.email);
+
+    console.log(Object.fromEntries(updatedUser));
+
+    //making a POST request to this url with the product the user wants to add
+    axios
+      .post("http://localhost:5000/users/update/" + user._id, updatedUser)
+      .then((res) => console.log(res.data));
+
+    // history.push("/");
+
+    //resets the form back to empty
+    // e.target.reset();
+
+    //sets the variables back to default if a user wants to add another product
+    // setProductName("");
+    // setProductDescription("");
+    // setProductPrice(null);
+    // setProductCondition("");
+    // setProductCategory("");
+    // setProductImage("");
+  }
+
+  function onChangeProfileImage(e) {
+    console.log(e.target.files[0]);
+    setProfileImage(e.target.files[0]);
+  }
 
   return (
     <div className="pageContent">
       <div className="editProfile" id="stylized">
-        <form className="userProfileDetail">
+        <form className="userProfileDetail" onSubmit={handleSubmit}>
           <h2 id="headingEditProfile">Edit Profile</h2>
           <div className="userProfileLables">
             <label>
               First Name:
               <input
                 type="text"
-                name="Enter First name"
-                placeholder={currentUser.email}
+                name="profileFirstName"
+                value={user.firstName}
                 className="EditProfileInput"
               />
             </label>
@@ -84,8 +149,8 @@ function EditProfile() {
               Last Name:
               <input
                 type="text"
-                name="Enter Last name"
-                placeholder={currentUser.email}
+                name="profileLastName"
+                value={user.lastName}
                 className="EditProfileInput"
               />
             </label>
@@ -93,8 +158,8 @@ function EditProfile() {
               Phone Number:
               <input
                 type="text"
-                name="Enter Phone Number"
-                placeholder={currentUser.email}
+                name="profilePhoneNumber"
+                value={user.phoneNumber}
                 className="EditProfileInput"
               />
             </label>
@@ -108,13 +173,23 @@ function EditProfile() {
                 className="EditProfileInput"
               />
             </label> */}
-            <label>
+            {/* <label>
               Address:
               <input
                 type="text"
                 name="Enter Address"
                 placeholder={currentUser.email}
                 className="EditProfileInput"
+              />
+            </label> */}
+            <label className="productDescription">
+              Add Profile Picture
+              <input
+                type="file"
+                name="photo"
+                accept="image/*"
+                className="addProductInput"
+                onChange={onChangeProfileImage}
               />
             </label>
           </div>

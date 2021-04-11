@@ -6,7 +6,7 @@ const multer = require("multer");
 const storage = multer.diskStorage({
   //file destinations
   destination: function (request, file, callback) {
-    callback(null, "../public/userImages");
+    callback(null, "../public/userProfile");
   },
 
   //add back file extension
@@ -54,14 +54,14 @@ router.route("/:id").get((req, res) => {
     .catch((err) => res.status(400).json("Error: " + err));
 });
 
-router.route("/update/:id").post((req, res) => {
-  User.findById(req.params.id)
+router.route("/update/:id").post(upload.single("photo"), (req, res) => {
+  User.findById(req.body.id)
     .then((user) => {
-      user.email = req.body.email;
-      user.firstName = req.body.firstName;
-      product.lastName = req.body.lastName;
-      product.phoneNumber = req.body.phoneNumber;
-
+      user.email = req.body.profileEmail;
+      user.firstName = req.body.profileFirstName;
+      user.lastName = req.body.profileLastName;
+      user.phoneNumber = req.body.profilePhoneNumber;
+      user.profileImage = req.file.filename;
       user
         .save()
         .then(() => res.json("User updated!"))
@@ -69,6 +69,5 @@ router.route("/update/:id").post((req, res) => {
     })
     .catch((err) => res.status(400).json("Error: " + err));
 });
-
 
 module.exports = router;
