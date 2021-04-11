@@ -149,7 +149,7 @@ function ProductInfo(props) {
                 to={{
                   pathname: "/sellerinfo",
                   productProps: {
-                    productId: product._id,
+                    productId: product.productEmail,
                   },
                 }}
               >
