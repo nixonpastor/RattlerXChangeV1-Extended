@@ -8,9 +8,19 @@ import { useState, useEffect } from "react";
 
 function SellerProfile(props) {
 
+  // setting a default user. 
+  const [users, setUsers] = useState({
+    _id: "",
+    email: "",
+    firstName: "",
+    lastName: "",
+    phoneNumber: "",
+    __v: 0,
+  });
+  const [isSecondLoading, setSecondLoading] = useState(true);
 
-  const [product, setProduct] = useState({
-    _id: props.location.productProps.productId,
+  const [products, setProduct] = useState({
+    _id: props.location.productProps.productEmail,
     productName: "No Product Info",
     productPrice: 0,
     productCondition: "No Condition Found",
@@ -22,24 +32,36 @@ function SellerProfile(props) {
 
   useEffect(() => {
     function getProducts() {
-      if (props.location.productProps.productId !== null) {
+      if (props.location.productProps.productEmail !== null) {
+        //getting the products from the database (mongo)
         axios
           .get(
-            "http://localhost:5000/products/" +
-            props.location.productProps.productId
+            "http://localhost:5000/products/"
           )
           .then((res) => {
             if (isLoading) {
               setProduct(res.data);
-              console.log(product);
+              console.log(products);
               setLoading(false);
+            }
+          });
+
+        //getting the users from the database (mongo)
+        axios
+          .get(
+            "http://localhost:5000/users/"
+          )
+          .then((res) => {
+            if (isSecondLoading) {
+              setUsers(res.data);
+              console.log(users);
+              setSecondLoading(false);
             }
           });
       }
     }
     getProducts();
-  }, [product, isLoading, props.location.productProps.productId]);
-
+  }, [products, users, isLoading, isSecondLoading, props.location.productProps.productEmail]);
 
 
   return (
@@ -55,8 +77,8 @@ function SellerProfile(props) {
           </div>
 
           <div className="SellerDetailProfile">
-            <h3 className="SellerNameTitle"> {product.productName} </h3>
-            <h3 className="SellerEmailTitle"> {product.productEmail} </h3>
+            <h3 className="SellerNameTitle">  </h3>
+            <h3 className="SellerEmailTitle"> {props.location.productProps.productEmail} </h3>
             <h3 className="SellerNoOfProducts"> Seller's No. of Products </h3>
           </div>
 
@@ -77,7 +99,7 @@ function SellerProfile(props) {
             <CardRender text="macBook Pro 2020" value="$1200" />
             <CardRender text="Desk Lamp" value="$100" />
             */}
-            
+
           </div>
         </div>
       </div>

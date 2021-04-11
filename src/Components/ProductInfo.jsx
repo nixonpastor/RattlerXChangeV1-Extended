@@ -40,7 +40,7 @@ function ProductInfo(props) {
         axios
           .get(
             "http://localhost:5000/products/" +
-              props.location.productProps.productId
+            props.location.productProps.productId
           )
           .then((res) => {
             if (isLoading) {
@@ -149,7 +149,7 @@ function ProductInfo(props) {
                 to={{
                   pathname: "/sellerinfo",
                   productProps: {
-                    productId: product.productEmail,
+                    productEmail: product.productEmail,
                   },
                 }}
               >

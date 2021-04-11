@@ -29,19 +29,17 @@ router.route("/").get((req, res) => {
     .catch((err) => res.status(400).json("Error: " + err));
 });
 
-router.route("/addUser").post(upload.single("photo"), (req, res) => {
+router.route("/addUser").post((req, res) => {
   const firstName = req.body.firstName;
   const lastName = req.body.lastName;
   const phoneNumber = req.body.phoneNumber;
   const email = req.body.email;
-  const userImage = req.body.userImage;
 
   const newUser = new User({
     email,
     firstName,
     lastName,
     phoneNumber,
-    userImage,
   });
 
   newUser
