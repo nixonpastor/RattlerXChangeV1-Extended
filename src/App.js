@@ -8,7 +8,7 @@ import Apparel from "./Components/Apparel";
 import Wishlist from "./Components/Wishlist";
 import Profile from "./Components/Profile";
 import Electronics from "./Components/Electronics";
-import Navbar from "./Components/ Navbar";
+import Navbar from "./Components/Navbar";
 import EditProfile from "./Components/EditProfile";
 import AddProduct from "./Components/AddProduct";
 import EditProduct from "./Components/EditProduct";
