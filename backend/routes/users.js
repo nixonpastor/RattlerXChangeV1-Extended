@@ -65,7 +65,7 @@ router.route("/update/:id").post(upload.single("photo"), (req, res) => {
       user
         .save()
         .then(() => res.json("User updated!"))
-        .catch((err) => res.status(400).json("Error: " + err));
+        .catch((err) => res.status(400).json("Error is: " + err));
     })
     .catch((err) => res.status(400).json("Error: " + err));
 });

@@ -149,13 +149,15 @@ function Profile(props) {
               />
           </div> */}
 
-          <div className="Name">Full Name</div>
+          <div className="Name">
+            {"Name: " + user.firstName + " " + user.lastName}
+          </div>
 
           {/* Used link here just in case we want to have this take
           the person straight to Outlook */}
 
           <li className="Email">Email: {currentUser.email}</li>
-          <div className="productsListed">No. of Products Listed</div>
+          <div className="productsListed">No. of Products Listed:</div>
           <div className="hyper">
             <li className="link">
               <Link

@@ -70,6 +70,9 @@ function EditProfile(props) {
   const [users, setUsers] = useState([]);
   const [user, setUser] = useState([]);
   const history = useHistory();
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
 
   useEffect(() => {
     function getUsers() {
@@ -84,6 +87,9 @@ function EditProfile(props) {
       users.map((user) => {
         if (user.email === props.location.userProps.userEmail) {
           setUser(user);
+          setFirstName(user.firstName);
+          setLastName(user.lastName);
+          setPhoneNumber(user.phoneNumber);
         }
         return user;
       });
@@ -99,9 +105,9 @@ function EditProfile(props) {
     const updatedUser = new FormData();
     updatedUser.append("photo", profileImage);
     updatedUser.append("id", user._id);
-    updatedUser.append("profileFirstName", user.firstName);
-    updatedUser.append("profileLastName", user.lastName);
-    updatedUser.append("profilePhoneNumber", user.phoneNumber);
+    updatedUser.append("profileFirstName", firstName);
+    updatedUser.append("profileLastName", lastName);
+    updatedUser.append("profilePhoneNumber", phoneNumber);
     updatedUser.append("profileEmail", currentUser.email);
 
     console.log(Object.fromEntries(updatedUser));
@@ -111,7 +117,7 @@ function EditProfile(props) {
       .post("http://localhost:5000/users/update/" + user._id, updatedUser)
       .then((res) => console.log(res.data));
 
-    // history.push("/");
+    history.push("/profile");
 
     //resets the form back to empty
     // e.target.reset();
@@ -130,10 +136,29 @@ function EditProfile(props) {
     setProfileImage(e.target.files[0]);
   }
 
+  function onChangeFirstName(e) {
+    setFirstName(e.target.value);
+    console.log(firstName);
+  }
+
+  function onChangeLastName(e) {
+    setLastName(e.target.value);
+    console.log(lastName);
+  }
+
+  function onChangePhoneNumber(e) {
+    setPhoneNumber(e.target.value);
+    console.log(phoneNumber);
+  }
+
   return (
     <div className="pageContent">
       <div className="editProfile" id="stylized">
-        <form className="userProfileDetail" onSubmit={handleSubmit}>
+        <form
+          className="userProfileDetail"
+          onSubmit={handleSubmit}
+          encType="multipart/form-data"
+        >
           <h2 id="headingEditProfile">Edit Profile</h2>
           <div className="userProfileLables">
             <label>
@@ -141,8 +166,10 @@ function EditProfile(props) {
               <input
                 type="text"
                 name="profileFirstName"
-                value={user.firstName}
+                defaultValue={firstName}
+                contentEditable={true}
                 className="EditProfileInput"
+                onChange={onChangeFirstName}
               />
             </label>
             <label>
@@ -150,8 +177,9 @@ function EditProfile(props) {
               <input
                 type="text"
                 name="profileLastName"
-                value={user.lastName}
+                defaultValue={user.lastName}
                 className="EditProfileInput"
+                onChange={onChangeLastName}
               />
             </label>
             <label>
@@ -159,29 +187,11 @@ function EditProfile(props) {
               <input
                 type="text"
                 name="profilePhoneNumber"
-                value={user.phoneNumber}
+                defaultValue={user.phoneNumber}
                 className="EditProfileInput"
+                onChange={onChangePhoneNumber}
               />
             </label>
-            {/* COMMENTED BECAUSE WE CANNOT LET THE USER CHANGE OUTLOOK EMAIL */}
-            {/* <label>
-              Email Address:
-              <input
-                type="text"
-                name="Enter Email Address"
-                placeholder="Enter Email Address"
-                className="EditProfileInput"
-              />
-            </label> */}
-            {/* <label>
-              Address:
-              <input
-                type="text"
-                name="Enter Address"
-                placeholder={currentUser.email}
-                className="EditProfileInput"
-              />
-            </label> */}
             <label className="productDescription">
               Add Profile Picture
               <input
