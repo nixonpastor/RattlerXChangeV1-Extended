@@ -12,7 +12,8 @@ function ProfileProductCard(props) {
         <h1>{props.text}</h1>
       </div>
       <div className="cardIcons">
-        <Link to="/editProduct" className="iconEditProduct">
+        <Link to="/editProduct" 
+        className="iconEditProduct">
           <i class="fas fa-pencil-alt"></i>
         </Link>
         <Link to="/outlook" className="iconTrashCan">

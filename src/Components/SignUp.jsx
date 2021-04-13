@@ -3,6 +3,7 @@ import { Form, Button, Card, Alert } from "react-bootstrap";
 import "./SignUp.css";
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
+import axios from "axios";
 
 export default function SignUp() {
   const emailRef = useRef();
@@ -16,6 +17,14 @@ export default function SignUp() {
   const [loading, setLoading] = useState(false);
   const history = useHistory();
 
+
+  const [userFirstName, setUserFirstName] = useState("");
+  const [userLastName, setUserLastName] = useState("");
+  //const [userEmail, setUserEmail] = useState("");
+  const [userPhoneNumber, setUserPhoneNumber] = useState("");
+  //const [userImage, setProductImage] = useState("");
+
+
   async function handleSubmit(e) {
     e.preventDefault();
     if (passwordRef.current.value !== passwordConfirmRef.current.value) {
@@ -26,12 +35,52 @@ export default function SignUp() {
       setError("");
       setLoading(true);
       await signup(emailRef.current.value, passwordRef.current.value);
+
+      const User = {email: emailRef.current.value, 
+                    firstName: firstNameRef.current.value,
+                    lastName: lastNameRef.current.value,
+                    phoneNumber: phoneNumberRef.current.value};
+
+      /*
+      // User.append("email", emailRef.current.value);
+      // User.append("firstName", firstNameRef.current.value);
+      // User.append("lastName", lastNameRef.current.value);
+      // User.append("phoneNumber", phoneNumberRef.current.value);
+      */
+      axios
+        .post("http://localhost:5000/users/addUser", User)
+        .then((res) => console.log(res.data));
+
+      //setUserEmail("");
+      // setUserFirstName("");
+      // setUserLastName("");
+      // setUserPhoneNumber("");
+
       history.push("/");
+
     } catch {
       setError("Failed to create an account");
     }
     setLoading(false);
   }
+
+
+  // function onChangeUserEmail(e) {
+  //   setUserEmail(e.target.value);
+  // }
+
+  // function onChangeUserFirstName(e){
+  //   setUserFirstName(e.target.value);
+  // }
+
+  // function onChangeUserLastName(e){
+  //   setUserLastName(e.target.value);
+  // }
+
+  // function onChangeUserPhoneNumber(e){
+  //   setUserPhoneNumber(e.target.value);
+  // }  
+
 
   return (
     <>
@@ -44,8 +93,9 @@ export default function SignUp() {
               <Form.Label className="fNameField">First Name</Form.Label>
               <Form.Control
                 className="textInput"
+                name="firstName"
                 type="text"
-                placeholder = "Please enter your first name."
+                placeholder="Please enter your first name."
                 ref={firstNameRef}
                 required
               />
@@ -55,8 +105,9 @@ export default function SignUp() {
               <Form.Label className="lNameField">Last Name</Form.Label>
               <Form.Control
                 className="textInput"
+                name="lastName"
                 type="text"
-                placeholder = "Please enter your last name."
+                placeholder="Please enter your last name."
                 ref={lastNameRef}
                 required
               />
@@ -66,8 +117,9 @@ export default function SignUp() {
               <Form.Label className="pNumberField">Phone Number</Form.Label>
               <Form.Control
                 className="textInput"
+                name="phoneNumber"
                 type="text"
-                placeholder = "Please enter your phone number."
+                placeholder="Please enter your phone number."
                 ref={phoneNumberRef}
                 required
               />
@@ -78,7 +130,8 @@ export default function SignUp() {
               <Form.Control
                 className="textInput"
                 type="email"
-                placeholder = "Please enter your Stmary's email address ."
+                name="email"
+                placeholder="Please enter your Stmary's email address ."
                 ref={emailRef}
                 required
               />
@@ -88,7 +141,7 @@ export default function SignUp() {
               <Form.Control
                 className="textInput"
                 type="password"
-                placeholder = "Please enter your Password. 6 characters Minimum with a UpperCase character."
+                placeholder="Please enter your Password. 6 characters Minimum with a UpperCase character."
                 ref={passwordRef}
                 required
               />
@@ -98,7 +151,7 @@ export default function SignUp() {
               <Form.Control
                 className="textInput"
                 type="password"
-                placeholder = "Please Re-enter your password."
+                placeholder="Please Re-enter your password."
                 ref={passwordConfirmRef}
                 required
               />

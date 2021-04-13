@@ -12,7 +12,7 @@
   position: relative;
   text-align: center;
   left: 12px;
-  width: 200px;
+  width: 230px;
 }
 
 .profilelink {
@@ -59,4 +59,26 @@
   padding-left: 10px;
   padding-right: 10px;
   padding-top: 15px;
+}
+
+
+.userImageDiv{
+  height:150px;
+  width: 100%;
+  align-content: center;
+  display: flex;
+}
+
+.userImageContainer{
+  height: 130px;
+  width: 130px;
+  margin-left:50px;
+}
+
+.uploadImageDiv{
+  display: flex;
+  height: 35px;
+  align-content: center;
+  text-align: center;
+  margin-left: 15px;
 }

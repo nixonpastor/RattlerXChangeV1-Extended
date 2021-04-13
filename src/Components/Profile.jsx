@@ -3,7 +3,7 @@ import Footer from "./Footer";
 import "./Profile.css";
 import "./Pages.css";
 import ProfileProductCardRender from "./ProfileProductCardRender";
-import React, { useState } from "react";
+import React, { useState, useReducer } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import { useHistory } from "react-router-dom";
 import { Alert } from "react-bootstrap";
@@ -13,8 +13,8 @@ import { useEffect } from "react";
 import axios from "axios";
 
 function Profile(props) {
-  const uploadedImage = React.useRef(null);
-  const imageUploader = React.useRef(null);
+  // const uploadedImage = React.useRef(null);
+  // const imageUploader = React.useRef(null);
   const history = useHistory();
   //getting the logged in user
   const { currentUser, logout } = useAuth();
@@ -23,6 +23,9 @@ function Profile(props) {
   //user products only
   const [products, setProducts] = useState([]);
   const [isLoading, setLoading] = useState(true);
+  const [isLoading2, setLoading2] = useState(true);
+  const [users, setUsers] = useState([]);
+  const [user, setUser] = useState([]);
 
   useEffect(() => {
     function getProducts() {
@@ -33,10 +36,25 @@ function Profile(props) {
           setLoading(false);
         }
       });
+      axios.get("http://localhost:5000/users/").then((res) => {
+        if (isLoading2) {
+          setUsers(res.data);
+          console.log(users);
+          setLoading2(false);
+        }
+      });
+      users.map((user) => {
+        if (user.email === currentUser.email) {
+          setUser(user);
+        }
+        return user;
+      });
+      console.log(user);
     }
     getProducts();
-  }, [products, isLoading]);
+  }, [products, isLoading, isLoading2, users, currentUser.email, user]);
 
+  /*
   const handleImageUpload = (e) => {
     const [file] = e.target.files;
     if (file) {
@@ -49,7 +67,7 @@ function Profile(props) {
       reader.readAsDataURL(file);
     }
   };
-
+  */
   async function handleLogout() {
     setError("");
     try {
@@ -62,14 +80,16 @@ function Profile(props) {
 
   return (
     <div className="pageContent">
-      <h1 className="title">Welcome</h1>
+      <h1 className="title"> Welcome </h1>
       <div className="rowUserProfileProducts">
         <div className="userInfo">
           <div className="ProfileTag">
             <b className="tag">My Profile</b>
           </div>
 
-          {/* Would like to link to file browser */}
+          {/*   
+           Would like to link to file browser      
+          
           <div
             style={{
               display: "flex",
@@ -109,17 +129,46 @@ function Profile(props) {
             </div>
             Click to Upload an Image
           </div>
+          */}
 
-          <div className="Name">Full Name</div>
+          <div className="userImageDiv">
+            <img
+              className="userImageContainer"
+              alt="Profile"
+              src={"userProfile/" + user.profileImage}
+            />
+          </div>
+
+          {/* <div className="uploadImageDiv">
+              <input
+                type="file"
+                name="photo"
+                accept="image/*"
+                className="userImageUploader"
+                //onChange={onChangeProductImage}
+              />
+          </div> */}
+
+          <div className="Name">
+            {"Name: " + user.firstName + " " + user.lastName}
+          </div>
 
           {/* Used link here just in case we want to have this take
           the person straight to Outlook */}
 
           <li className="Email">Email: {currentUser.email}</li>
-          <div className="productsListed">No. of Products Listed</div>
+          <div className="productsListed">No. of Products Listed:</div>
           <div className="hyper">
             <li className="link">
-              <Link to="/editProfile" className="profilelink">
+              <Link
+                className="profilelink"
+                to={{
+                  pathname: "/editProfile",
+                  userProps: {
+                    userEmail: currentUser.email,
+                  },
+                }}
+              >
                 Edit Profile
               </Link>
             </li>
