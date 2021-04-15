@@ -120,8 +120,8 @@ function AddProduct() {
                 onChange={onChangeProductCondition}
               >
                 <option value="">Select Category</option>
-                <option value="Electronics">New</option>
-                <option value="DormDecor">Used</option>
+                <option value="New">New</option>
+                <option value="Used">Used</option>
               </select>
             </label>
 

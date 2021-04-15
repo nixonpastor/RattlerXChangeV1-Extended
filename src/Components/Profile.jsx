@@ -13,6 +13,9 @@ import { useEffect } from "react";
 import axios from "axios";
 
 function Profile(props) {
+
+  console.log(props)
+
   // const uploadedImage = React.useRef(null);
   // const imageUploader = React.useRef(null);
   const history = useHistory();
@@ -194,6 +197,7 @@ function Profile(props) {
                   text={product.productName}
                   value={"$" + product.productPrice}
                   img={product.productImage}
+                  prodId={product._id}
                 />
               ) : null
             )}
