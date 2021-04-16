@@ -22,6 +22,7 @@ export default function Login() {
       await login(emailRef.current.value, passwordRef.current.value)
       history.push("/")
     } catch {
+      window.alert("Failed to create an account")
       setError("Failed to log in")
     }
 

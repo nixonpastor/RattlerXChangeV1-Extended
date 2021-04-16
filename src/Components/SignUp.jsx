@@ -59,6 +59,7 @@ export default function SignUp() {
       history.push("/");
 
     } catch {
+      window.alert("Failed to create an account")
       setError("Failed to create an account");
     }
     setLoading(false);

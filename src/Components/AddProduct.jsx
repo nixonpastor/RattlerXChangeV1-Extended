@@ -46,6 +46,8 @@ function AddProduct() {
     setProductCondition("");
     setProductCategory("");
     setProductImage("");
+
+    window.alert("Product Added.")
   }
 
   //these onChange functions are called whenever a label is changed so the value of
