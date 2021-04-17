@@ -9,16 +9,16 @@ import { useHistory } from "react-router-dom";
 function EditProduct(props) {
 
   //setting values to nothing by default, setting state of current variables
-  const [productName, setProductName] = useState("");
-  const [productDescription, setProductDescription] = useState("");
-  const [productPrice, setProductPrice] = useState(null);
-  const [productCondition, setProductCondition] = useState("");
-  const [productCategory, setProductCategory] = useState("");
-  const { currentUser } = useAuth();
+  // const [productName, setProductName] = useState("");
+  // const [productDescription, setProductDescription] = useState("");
+  // const [productPrice, setProductPrice] = useState(null);
+  // const [productCondition, setProductCondition] = useState("");
+  // const [productCategory, setProductCategory] = useState("");
+  // const { currentUser } = useAuth();
 
   console.log("Check")
   console.log(props)
-  console.log(props.location.productProps.productID)
+  //console.log(props.location.productProps.productID)
   console.log("Check")
 
   // //when user submits form, this function is called
@@ -75,7 +75,8 @@ function EditProduct(props) {
   // }
 
   const [product, setProduct] = useState({
-    _id: props.location.productProps.productId,
+    //_id: props.location.productProps.productId,
+    _id: "",
     productName: "No Product Info",
     productPrice: 0,
     productCondition: "No Condition Found",
@@ -84,6 +85,13 @@ function EditProduct(props) {
     productEmail: "",
     __v: 0,
   });
+  
+  const [productName, setProductName] = useState("");
+  const [productDescription, setProductDescription] = useState("");
+  const [productPrice, setProductPrice] = useState("");
+  const [productCondition, setProductCondition] = useState("");
+  const [productCategory, setProductCategory] = useState("");
+  const [productImage, setProductImage] = useState("");
   const [isLoading, setLoading] = useState(true);
 
 
@@ -121,6 +129,7 @@ function EditProduct(props) {
     updatedProduct.append("productDescription", productDescription);
     updatedProduct.append("productCondition", productCondition);
     updatedProduct.append("productCategory", productCategory);
+    updatedProduct.append("photo", productImage);
 
     console.log(Object.fromEntries(updatedProduct));
 
@@ -133,14 +142,47 @@ function EditProduct(props) {
 
   }
 
+  function onChangeProductName(e) {
+    setProductName(e.target.value);
+    console.log(productName);
+  }
+
+  function onChangeProductCost(e) {
+    setProductPrice(e.target.value);
+    console.log(productPrice);
+  }
+
+  function onChangeProductCondition(e) {
+    setProductCondition(e.target.value);
+    console.log(productCondition);
+  }
+
+  function onChangeProductCategory(e) {
+    setProductCategory(e.target.value);
+    console.log(productCategory);
+  }
+
+  function onChangeProductDescription(e) {
+    setProductDescription(e.target.value);
+    console.log(productDescription);
+  }
+
+  function onChangeProductImage(e) {
+    setProductImage(e.target.value);
+    console.log(productImage);
+  }
 
   return (
     <div className="pageContent">
       <h2 className="editProductHeader">Edit Product Information</h2>
       <div className="mainEditProduct">
         <div className="addImageEditProduct">
-          <button className="editProductImage">Add/Delete Image(s) +/-
-                </button>
+          {/* <button className="editProductImage">Add/Delete Image(s) +/- /> */}
+          <img
+            className="productImageProductInfo"
+            alt={product.productName}
+            src={"images/" + product.productImage}
+          />    
         </div>
         <div className="editProductLabels">
           <form className="editProductForm" onSubmit={onSubmit}>
@@ -150,14 +192,16 @@ function EditProduct(props) {
                     type="text" 
                     name="Edit Product name" 
                     className="editProductInput" 
-                    placeholder={product.productName} />
+                    placeholder={product.productName} 
+                    onChange={onChangeProductName}/>
             </label>
             <label>
               Cost:
                     <input type="text" 
                     name="Edit Cost of the Product" 
                     className="editProductInput" 
-                    placeholder={product.productPrice} />
+                    placeholder={product.productPrice}
+                    onChange={onChangeProductCost} />
             </label>
 
             <label>
@@ -166,7 +210,7 @@ function EditProduct(props) {
                       name="Edit Product Condition"
                       className="editProductInput"
                       placeholder={product.productCondition}
-                    //onChange={onChangeProductCondition}
+                      onChange={onChangeProductCondition}
                     >
                       <option value="">Select Category</option>
                       <option value="New">New</option>
@@ -181,7 +225,7 @@ function EditProduct(props) {
                         name="Select Category" 
                         className="editProductInput" 
                         placeholder={product.productCategory}
-                        //onChange={onChangeProductCategory}
+                        onChange={onChangeProductCategory}
                       >
                         <option value="">Select Category</option>
                         <option value="Electronics">Electronics</option>
@@ -192,7 +236,23 @@ function EditProduct(props) {
             </label>
             <label>
               Description:
-                    <input type="text" name="Product Description" className="editProductInput" placeholder={product.productDescription} />
+                    <input 
+                    type="text" 
+                    name="Product Description" 
+                    className="editProductInput" 
+                    placeholder={product.productDescription}
+                    onChange={onChangeProductDescription} />
+            </label>
+
+            <label className="editProductInput">
+              Add Image
+              <input
+                type="file"
+                name="photo"
+                accept="image/*"
+                className="addProductInput"
+                onChange={onChangeProductImage}
+              />
             </label>
             <button type="submit" className="saveChangesButton">
               Save Changes

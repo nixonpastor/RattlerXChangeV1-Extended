@@ -75,11 +75,16 @@ function Profile(props) {
     setError("");
     try {
       await logout();
+      window.alert("Logout successful.")
       history.push("/login");
     } catch {
       setError("Failed to log out");
     }
   }
+
+  // function Error(){
+  //   window.alert("Logout successful.")
+  // }
 
   return (
     <div className="pageContent">
@@ -181,7 +186,7 @@ function Profile(props) {
               </Link>
             </li>
             <li className="link">
-              <Link to="/login" onClick={handleLogout} className="profilelink">
+              <Link to="/login" onClick={handleLogout} className="profilelink" >
                 Log Out
               </Link>
               {error && <Alert variant="danger">{error}</Alert>}
