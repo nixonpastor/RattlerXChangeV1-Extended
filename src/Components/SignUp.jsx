@@ -17,13 +17,11 @@ export default function SignUp() {
   const [loading, setLoading] = useState(false);
   const history = useHistory();
 
-
   const [userFirstName, setUserFirstName] = useState("");
   const [userLastName, setUserLastName] = useState("");
   //const [userEmail, setUserEmail] = useState("");
   const [userPhoneNumber, setUserPhoneNumber] = useState("");
   //const [userImage, setProductImage] = useState("");
-
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -36,10 +34,12 @@ export default function SignUp() {
       setLoading(true);
       await signup(emailRef.current.value, passwordRef.current.value);
 
-      const User = {email: emailRef.current.value, 
-                    firstName: firstNameRef.current.value,
-                    lastName: lastNameRef.current.value,
-                    phoneNumber: phoneNumberRef.current.value};
+      const User = {
+        email: emailRef.current.value.toLowerCase(),
+        firstName: firstNameRef.current.value,
+        lastName: lastNameRef.current.value,
+        phoneNumber: phoneNumberRef.current.value,
+      };
 
       /*
       // User.append("email", emailRef.current.value);
@@ -57,14 +57,12 @@ export default function SignUp() {
       // setUserPhoneNumber("");
 
       history.push("/");
-
     } catch {
-      window.alert("Failed to create an account")
+      window.alert("Failed to create an account");
       setError("Failed to create an account");
     }
     setLoading(false);
   }
-
 
   // function onChangeUserEmail(e) {
   //   setUserEmail(e.target.value);
@@ -80,8 +78,7 @@ export default function SignUp() {
 
   // function onChangeUserPhoneNumber(e){
   //   setUserPhoneNumber(e.target.value);
-  // }  
-
+  // }
 
   return (
     <>
