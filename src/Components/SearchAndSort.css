@@ -26,7 +26,21 @@
   border-radius: 1px;
 }
 
+.filterButton {
+  height: 39px;
+  width: 45px;
+  margin-left: 0px;
+  margin-right: 5px;
+  background-color: #003466;
+  border: none;
+  border-radius: 2px;
+}
+
 .fa-search {
+  color: white;
+}
+
+.fa-filter {
   color: white;
 }
 
@@ -45,7 +59,7 @@ li {
   list-style-type: none;
 }
 
-.SortButtonDropDown{
+.SortButtonDropDown {
   height: 39px;
   width: 135px;
   margin: 5px;

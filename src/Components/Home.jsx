@@ -12,7 +12,11 @@ function Home() {
   const [products, setProducts] = useState([]);
   const [isLoading, setLoading] = useState(true);
   const [filter, setFilter] = useState("");
-  const filteredProducts = [];
+  const [searchFilter, setTermFilter] = useState("");
+  const [allProducts, setAllProducts] = useState([]);
+  const usedProducts = [];
+  const newProducts = [];
+  const searchProducts = [];
 
   useEffect(() => {
     function getProducts() {
@@ -20,6 +24,7 @@ function Home() {
         if (isLoading) {
           setProducts(res.data);
           console.log(products);
+          setAllProducts(res.data);
           setLoading(false);
         }
       });
@@ -32,35 +37,67 @@ function Home() {
     setFilter(e.target.value);
   }
 
-  // products.map((product) => {
-  //   if (filter === "") {
-  //     setProducts(products);
-  //   }
-  //   if (product.productCategory === filter) {
-  //     filteredProducts.push(product);
-  //   }
+  function filterProducts() {
+    allProducts.map((product) => {
+      if (filter === "") {
+        setProducts(allProducts);
+      } else if (product.productCondition === filter && filter === "Used") {
+        usedProducts.push(product);
+        setProducts(usedProducts);
+      } else if (product.productCondition === filter && filter === "New") {
+        newProducts.push(product);
+        setProducts(newProducts);
+      }
 
-  //   setProducts(filteredProducts);
-  //   console.log(products);
-  //   return products;
-  // });
+      return products;
+    });
+    console.log("New filtered products are: ");
+    console.log(products);
+  }
+
+  function filterProductsbySearch() {
+    allProducts.map((product) => {
+      var productName = product.productName.toLowerCase();
+      if (
+        productName.includes(searchFilter.toLowerCase()) ||
+        product.productDescription
+          .toLowerCase()
+          .includes(searchFilter.toLowerCase())
+      ) {
+        searchProducts.push(product);
+        setProducts(searchProducts);
+      }
+      return products;
+    });
+  }
+
+  function setSearchFilter(e) {
+    setTermFilter(e.target.value);
+  }
 
   return (
     <div className="pageContent">
       <SearchAndSort Title="Main Menu" />
       <div className="sortAndSearch">
         <select className="SortButtonDropDown" onChange={onChangeFilter}>
-          <option value="">Select Condition</option>
+          <option value="">No Filter</option>
           <option value="New">New</option>
           <option value="Used">Used</option>
         </select>
-
+        <button type="submit" className="filterButton" onClick={filterProducts}>
+          <i class="fa fa-filter"></i>
+        </button>
         <input
           type="text"
           className="searchTerm"
           placeholder="What are you looking for?"
+          onChange={setSearchFilter}
         />
-        <button type="submit" className="searchButton">
+        <button
+          type="submit"
+          className="searchButton"
+          onClick={filterProductsbySearch}
+        >
           <i class="fa fa-search"></i>
         </button>
       </div>
