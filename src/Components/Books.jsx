@@ -9,7 +9,15 @@ import { Link } from "react-router-dom";
 function Books() {
   const [products, setProducts] = useState([]);
   const [isLoading, setLoading] = useState(true);
+
   const books = [];
+
+  const [filter, setFilter] = useState("");
+  const [searchFilter, setTermFilter] = useState("");
+  const [allProducts, setAllProducts] = useState([]);
+  const usedProducts = [];
+  const newProducts = [];
+  const searchProducts = [];
 
   useEffect(() => {
     function getProducts() {
@@ -46,9 +54,79 @@ function Books() {
       </div>
     );
   }
+
+  function onChangeFilter(e) {
+    console.log(e.target.value);
+    setFilter(e.target.value);
+  }
+
+  function filterProducts() {
+    allProducts.map((product) => {
+      if (filter === "") {
+        setProducts(allProducts);
+      } else if (product.productCondition === filter && filter === "Used") {
+        usedProducts.push(product);
+        setProducts(usedProducts);
+      } else if (product.productCondition === filter && filter === "New") {
+        newProducts.push(product);
+        setProducts(newProducts);
+      }
+
+      return products;
+    });
+    console.log("New filtered products are: ");
+    console.log(products);
+  }
+
+  function filterProductsbySearch() {
+    allProducts.map((product) => {
+      var productName = product.productName.toLowerCase();
+      if (
+        productName.includes(searchFilter.toLowerCase()) ||
+        product.productDescription
+          .toLowerCase()
+          .includes(searchFilter.toLowerCase())
+      ) {
+        searchProducts.push(product);
+        setProducts(searchProducts);
+      }
+      return products;
+    });
+  }
+
+  function setSearchFilter(e) {
+    setTermFilter(e.target.value);
+  }
+
+
   return (
     <div className="pageContent">
       <SearchAndSortRender Title="Books" />
+
+      <div className="sortAndSearch">
+        <select className="SortButtonDropDown" onChange={onChangeFilter}>
+          <option value="">No Filter</option>
+          <option value="New">New</option>
+          <option value="Used">Used</option>
+        </select>
+        <button type="submit" className="filterButton" onClick={filterProducts}>
+          <i class="fa fa-filter"></i>
+        </button>
+        <input
+          type="text"
+          className="searchTerm"
+          placeholder="What are you looking for?"
+          onChange={setSearchFilter}
+        />
+        <button
+          type="submit"
+          className="searchButton"
+          onClick={filterProductsbySearch}
+        >
+          <i class="fa fa-search"></i>
+        </button>
+      </div>
+
       <ul className="CardsContainer">
         {books.map((book) => (
           <Link
