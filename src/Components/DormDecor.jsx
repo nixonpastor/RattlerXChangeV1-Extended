@@ -1,4 +1,3 @@
-import CardRender from "./CardRender";
 import SearchAndSortRender from "./SearchAndSortRender";
 import Footer from "./Footer";
 import "./Pages.css";
@@ -10,21 +9,20 @@ import { Link } from "react-router-dom";
 function DormDecor() {
   const [products, setProducts] = useState([]);
   const [isLoading, setLoading] = useState(true);
-
-  const dormDecor = [];
-
+  const [dormDecor, setDormDecor] = useState([]);
   const [filter, setFilter] = useState("");
   const [searchFilter, setTermFilter] = useState("");
   const [allProducts, setAllProducts] = useState([]);
-  const usedProducts = [];
-  const newProducts = [];
-  const searchProducts = [];
+  var usedProducts = [];
+  var newProducts = [];
+  var searchProducts = [];
 
   useEffect(() => {
     function getProducts() {
       axios.get("http://localhost:5000/products/").then((res) => {
         if (isLoading) {
           setProducts(res.data);
+          setAllProducts(res.data);
           console.log(products);
           setLoading(false);
         }
@@ -33,14 +31,7 @@ function DormDecor() {
     getProducts();
   }, [products, isLoading]);
 
-  products.map((product) => {
-    if (product.productCategory === "DormDecor") {
-      dormDecor.push(product);
-    }
-    return dormDecor;
-  });
-
-  if (dormDecor.length === 0) {
+  if (dormDecor.length === 0 && products.length === 0) {
     return (
       <div className="pageContent">
         <SearchAndSortRender Title="Dorm Decor" />
@@ -62,6 +53,15 @@ function DormDecor() {
   }
 
   function filterProducts() {
+    setDormDecor([]);
+    products.map((product) => {
+      if (product.productCategory === "DormDecor") {
+        dormDecor.push(product);
+      }
+      return dormDecor;
+    });
+
+    setDormDecor(dormDecor);
     allProducts.map((product) => {
       if (filter === "") {
         setProducts(allProducts);
@@ -115,7 +115,7 @@ function DormDecor() {
         <input
           type="text"
           className="searchTerm"
-          placeholder="What are you looking for?"
+          placeholder="What are you looking for? Enter product name or description ..."
           onChange={setSearchFilter}
         />
         <button
@@ -126,7 +126,7 @@ function DormDecor() {
           <i class="fa fa-search"></i>
         </button>
       </div>
-      
+
       <ul className="CardsContainer">
         {products.map((product) =>
           product.productCategory === "DormDecor" ? (

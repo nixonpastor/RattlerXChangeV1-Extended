@@ -1,4 +1,3 @@
-import CardRender from "./CardRender";
 import SearchAndSortRender from "./SearchAndSortRender";
 import Footer from "./Footer";
 import "./Pages.css";
@@ -10,21 +9,20 @@ import { Link } from "react-router-dom";
 function Apparel() {
   const [products, setProducts] = useState([]);
   const [isLoading, setLoading] = useState(true);
-
-  const apparel = [];
-
+  const [apparel, setApparel] = useState([]);
+  const [allProducts, setAllProducts] = useState([]);
   const [filter, setFilter] = useState("");
   const [searchFilter, setTermFilter] = useState("");
-  const [allProducts, setAllProducts] = useState([]);
-  const usedProducts = [];
-  const newProducts = [];
-  const searchProducts = [];
+  var usedProducts = [];
+  var newProducts = [];
+  var searchProducts = [];
 
   useEffect(() => {
     function getProducts() {
       axios.get("http://localhost:5000/products/").then((res) => {
         if (isLoading) {
           setProducts(res.data);
+          setAllProducts(res.data);
           console.log(products);
           setLoading(false);
         }
@@ -33,14 +31,7 @@ function Apparel() {
     getProducts();
   }, [products, isLoading]);
 
-  products.map((product) => {
-    if (product.productCategory === "Apparel") {
-      apparel.push(product);
-    }
-    return apparel;
-  });
-
-  if (apparel.length === 0) {
+  if (apparel.length === 0 && products.length === 0) {
     return (
       <div className="pageContent">
         <SearchAndSortRender Title="Apparel" />
@@ -62,15 +53,25 @@ function Apparel() {
   }
 
   function filterProducts() {
-    allProducts.map((product) => {
+    products.map((product) => {
+      if (product.productCategory === "Apparel") {
+        apparel.push(product);
+      }
+      return apparel;
+    });
+
+    setApparel(apparel);
+    apparel.map((product) => {
       if (filter === "") {
         setProducts(allProducts);
       } else if (product.productCondition === filter && filter === "Used") {
         usedProducts.push(product);
         setProducts(usedProducts);
+        usedProducts = [];
       } else if (product.productCondition === filter && filter === "New") {
         newProducts.push(product);
         setProducts(newProducts);
+        newProducts = [];
       }
 
       return products;
@@ -115,7 +116,7 @@ function Apparel() {
         <input
           type="text"
           className="searchTerm"
-          placeholder="What are you looking for?"
+          placeholder="What are you looking for? Enter product name or description ..."
           onChange={setSearchFilter}
         />
         <button

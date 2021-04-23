@@ -9,21 +9,22 @@ import { Link } from "react-router-dom";
 function Books() {
   const [products, setProducts] = useState([]);
   const [isLoading, setLoading] = useState(true);
-
-  const books = [];
+  const [books, setBooks] = useState([]);
+  // const books = [];
 
   const [filter, setFilter] = useState("");
   const [searchFilter, setTermFilter] = useState("");
   const [allProducts, setAllProducts] = useState([]);
-  const usedProducts = [];
-  const newProducts = [];
-  const searchProducts = [];
+  var usedProducts = [];
+  var newProducts = [];
+  var searchProducts = [];
 
   useEffect(() => {
     function getProducts() {
       axios.get("http://localhost:5000/products/").then((res) => {
         if (isLoading) {
           setProducts(res.data);
+          setAllProducts(res.data);
           console.log(products);
           setLoading(false);
         }
@@ -32,14 +33,7 @@ function Books() {
     getProducts();
   }, [products, isLoading]);
 
-  products.map((product) => {
-    if (product.productCategory === "Books") {
-      books.push(product);
-    }
-    return books;
-  });
-
-  if (books.length === 0) {
+  if (books.length === 0 && products.length === 0) {
     return (
       <div className="pageContent">
         <SearchAndSortRender Title="Books" />
@@ -61,15 +55,25 @@ function Books() {
   }
 
   function filterProducts() {
-    allProducts.map((product) => {
+    products.map((product) => {
+      if (product.productCategory === "Books") {
+        books.push(product);
+      }
+      return books;
+    });
+
+    setBooks(books);
+    books.map((product) => {
       if (filter === "") {
         setProducts(allProducts);
       } else if (product.productCondition === filter && filter === "Used") {
         usedProducts.push(product);
         setProducts(usedProducts);
+        usedProducts = [];
       } else if (product.productCondition === filter && filter === "New") {
         newProducts.push(product);
         setProducts(newProducts);
+        newProducts = [];
       }
 
       return products;
@@ -98,7 +102,6 @@ function Books() {
     setTermFilter(e.target.value);
   }
 
-
   return (
     <div className="pageContent">
       <SearchAndSortRender Title="Books" />
@@ -115,7 +118,7 @@ function Books() {
         <input
           type="text"
           className="searchTerm"
-          placeholder="What are you looking for?"
+          placeholder="What are you looking for? Enter product name or description ..."
           onChange={setSearchFilter}
         />
         <button
@@ -128,26 +131,29 @@ function Books() {
       </div>
 
       <ul className="CardsContainer">
-        {books.map((book) => (
-          <Link
-            style={{
-              textDecoration: "none",
-              color: "black",
-            }}
-            to={{
-              pathname: "/productInfo",
-              productProps: {
-                productId: book._id,
-              },
-            }}
-          >
-            <Card
-              text={book.productName}
-              value={"$" + book.productPrice}
-              img={book.productImage}
-            />
-          </Link>
-        ))}
+        {products.map((product) =>
+          product.productCategory === "Books" ||
+          product.productCategory === "books" ? (
+            <Link
+              style={{
+                textDecoration: "none",
+                color: "black",
+              }}
+              to={{
+                pathname: "/productInfo",
+                productProps: {
+                  productId: product._id,
+                },
+              }}
+            >
+              <Card
+                text={product.productName}
+                value={"$" + product.productPrice}
+                img={product.productImage}
+              />
+            </Link>
+          ) : null
+        )}
       </ul>
       <Footer />
     </div>

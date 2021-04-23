@@ -90,7 +90,7 @@ function Home() {
         <input
           type="text"
           className="searchTerm"
-          placeholder="What are you looking for?"
+          placeholder="What are you looking for? Enter product name or description ..."
           onChange={setSearchFilter}
         />
         <button
