@@ -1,10 +1,30 @@
 import "./ProfileProductCard.css";
+import axios from "axios";
+//import { useHistory } from "react-router-dom";
 
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 function ProfileProductCard(props) {
 
+  const history = useHistory();
+
   console.log(props)
+
+
+  function deleteButtonPressed(e){
+    console.log("Check")
+    console.log(props)
+    console.log(props.prodId)
+    axios
+      .delete("http://localhost:5000/products/"+ props.prodId, {id:props.prodId})
+      .then((res) => console.log(res.data));
+
+    console.log("Check line")
+    window.alert("Product Deleted.")
+    
+    //history.push("/home");
+    window.location.reload()
+  }
 
   return (
     <li className="CardContainer">
@@ -24,7 +44,7 @@ function ProfileProductCard(props) {
           className="iconEditProduct">
           <i class="fas fa-pencil-alt"></i>
         </Link>
-        <Link to="/outlook" className="iconTrashCan">
+        <Link to="/home" className="iconTrashCan" onClick={deleteButtonPressed}>
           <i class="fas fa-trash-alt"></i>
         </Link>
       </div>
