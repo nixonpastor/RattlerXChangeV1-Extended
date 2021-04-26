@@ -66,8 +66,8 @@ router.route("/:id").delete((req, res) => {
     .catch((err) => res.status(400).json("Error: " + err));
 });
 
-router.route("/update/:id").post((req, res) => {
-  Product.findById(req.params.id)
+router.route("/update/:id").post(upload.single("photo"), (req, res) => {
+  Product.findById(req.body.id)
     .then((product) => {
       product.productName = req.body.productName;
       product.productDescription = req.body.productDescription;
@@ -75,6 +75,7 @@ router.route("/update/:id").post((req, res) => {
       product.productCondition = req.body.productCondition;
       product.productCategory = req.body.productCategory;
       product.productEmail = req.body.productEmail;
+      product.productImage = req.file.filename;
 
       product
         .save()
