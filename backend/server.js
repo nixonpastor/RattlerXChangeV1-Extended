@@ -27,6 +27,9 @@ app.use("/products", productRouter);
 const userRouter = require("./routes/users.js");
 app.use("/users", userRouter);
 
+const wishlistRouter = require("./routes/wishlist.js");
+app.use("/wishlists", wishlistRouter);
+
 app.listen(port, () => {
   console.log(`Server is running on port: ${port}`);
 });
