@@ -8,8 +8,8 @@ router.route("/").get((req, res) => {
 });
 
 router.route("/addWishlistItem").post((req, res) => {
-  const wishlistProduct = req.body.productId;
-  const wishlistOwner = req.body.userEmail;
+  const wishlistProduct = req.body.wishlistProduct;
+  const wishlistOwner = req.body.wishlistOwner;
 
   const newWishlistItem = new Wishlist({
     wishlistProduct,

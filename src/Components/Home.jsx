@@ -119,6 +119,7 @@ function Home() {
               text={product.productName}
               value={"$" + product.productPrice}
               img={product.productImage}
+              productId={product._id}
             />
           </Link>
         ))}

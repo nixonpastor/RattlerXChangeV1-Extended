@@ -1,16 +1,11 @@
 import Footer from "./Footer";
 import "./EditProfile.css";
 import "./Pages.css";
-// import { useAuth } from "../contexts/AuthContext";
 import { useHistory } from "react-router-dom";
-// import { Alert } from "react-bootstrap";
-// import { useState, useRef } from "react";
 
 /*Pragyan Added*/
 import React, { useState, useEffect } from "react";
 import { useAuth } from "../contexts/AuthContext";
-// import { useHistory } from "react-router-dom";
-// import { Alert } from "react-bootstrap";
 import axios from "axios";
 
 function EditProfile(props) {
