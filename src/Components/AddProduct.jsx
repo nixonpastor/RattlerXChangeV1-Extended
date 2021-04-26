@@ -4,6 +4,7 @@ import "./Pages.css";
 import { useState } from "react";
 import axios from "axios";
 import { useAuth } from "../contexts/AuthContext";
+import { useHistory } from "react-router-dom";
 
 function AddProduct() {
   //setting values to nothing by default, setting state of current variables
@@ -14,6 +15,7 @@ function AddProduct() {
   const [productCategory, setProductCategory] = useState("");
   const [productImage, setProductImage] = useState("");
   const { currentUser } = useAuth();
+  const history = useHistory();
 
   //when user submits form, this function is called
   function onSubmit(e) {
@@ -48,6 +50,9 @@ function AddProduct() {
     setProductImage("");
 
     window.alert("Product Added.")
+
+    history.push("/profile")
+
   }
 
   //these onChange functions are called whenever a label is changed so the value of

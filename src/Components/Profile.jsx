@@ -165,7 +165,6 @@ function Profile(props) {
           the person straight to Outlook */}
 
           <li className="Email">Email: {currentUser.email}</li>
-          <div className="productsListed">No. of Products Listed:</div>
           <div className="hyper">
             <li className="link">
               <Link
