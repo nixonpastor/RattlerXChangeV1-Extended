@@ -207,32 +207,6 @@ function EditProfile(props) {
             Update Profile{" "}
           </button>
         </form>
-        <form className="userProfilePasswordDetail">
-          <h2 id="headingEditProfile">Change Password</h2>
-          <div className="formProfileLables">
-            <label>
-              New Password:
-              <input
-                type="text"
-                name="Enter New Password"
-                placeholder="Enter New Password"
-                className="EditProfileInput"
-              />
-            </label>
-            <label>
-              Current Password:
-              <input
-                type="text"
-                name="Enter Current Password"
-                placeholder="Enter Current Password"
-                className="EditProfileInput"
-              />
-            </label>
-          </div>
-          <button type="submit" className="updatePasswordButton">
-            Update Password{" "}
-          </button>
-        </form>
       </div>
       <Footer />
     </div>
