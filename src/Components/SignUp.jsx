@@ -23,43 +23,52 @@ export default function SignUp() {
   const [userPhoneNumber, setUserPhoneNumber] = useState("");
   //const [userImage, setProductImage] = useState("");
 
+  function validateEmail(email) {
+    var regex = /^[\w.+\-]+@mail\.stmarytx\.edu$/;
+    return regex.test(email);
+  }
+
   async function handleSubmit(e) {
     e.preventDefault();
     if (passwordRef.current.value !== passwordConfirmRef.current.value) {
       return setError("Passwords do not match");
     }
 
-    try {
-      setError("");
-      setLoading(true);
-      await signup(emailRef.current.value, passwordRef.current.value);
+    if (validateEmail(emailRef.current.value.toLowerCase())) {
+      try {
+        setError("");
+        setLoading(true);
+        await signup(emailRef.current.value, passwordRef.current.value);
 
-      const User = {
-        email: emailRef.current.value.toLowerCase(),
-        firstName: firstNameRef.current.value,
-        lastName: lastNameRef.current.value,
-        phoneNumber: phoneNumberRef.current.value,
-      };
+        const User = {
+          email: emailRef.current.value.toLowerCase(),
+          firstName: firstNameRef.current.value,
+          lastName: lastNameRef.current.value,
+          phoneNumber: phoneNumberRef.current.value,
+        };
 
-      /*
+        /*
       // User.append("email", emailRef.current.value);
       // User.append("firstName", firstNameRef.current.value);
       // User.append("lastName", lastNameRef.current.value);
       // User.append("phoneNumber", phoneNumberRef.current.value);
       */
-      axios
-        .post("http://localhost:5000/users/addUser", User)
-        .then((res) => console.log(res.data));
+        axios
+          .post("http://localhost:5000/users/addUser", User)
+          .then((res) => console.log(res.data));
 
-      //setUserEmail("");
-      // setUserFirstName("");
-      // setUserLastName("");
-      // setUserPhoneNumber("");
+        //setUserEmail("");
+        // setUserFirstName("");
+        // setUserLastName("");
+        // setUserPhoneNumber("");
 
-      history.push("/");
-    } catch {
-      window.alert("Failed to create an account");
-      setError("Failed to create an account");
+        history.push("/");
+      } catch {
+        window.alert("Failed to create an account");
+        setError("Failed to create an account");
+      }
+    } else {
+      setError("Please enter a valid St. Mary's Email.");
     }
     setLoading(false);
   }
@@ -85,7 +94,18 @@ export default function SignUp() {
       <Card className="signUpCard">
         <Card.Body className="signUpBody">
           <h2 className="signUpHeader">Sign Up</h2>
-          {error && <Alert variant="danger">{error}</Alert>}
+          {error && (
+            <Alert
+              variant="danger"
+              style={{
+                color: "red",
+                textAlign: "center",
+                marginTop: "-20px",
+              }}
+            >
+              {error}
+            </Alert>
+          )}
           <Form className="signUpForm" onSubmit={handleSubmit}>
             <Form.Group className="InputField" id="FName">
               <Form.Label className="fNameField">First Name</Form.Label>
