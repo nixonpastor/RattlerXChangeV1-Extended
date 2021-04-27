@@ -30,6 +30,7 @@ export default function Login() {
    
     <>
       <div>
+        <h2 align="center"> Please Login To Proceed </h2>
       <Card className="signUpCard">
         <Card.Body className="signUpBody">
           <h2 className="signUpHeader">Log In</h2>
