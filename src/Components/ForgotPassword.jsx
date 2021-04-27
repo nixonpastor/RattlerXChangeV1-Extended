@@ -28,7 +28,10 @@ export default function ForgotPassword() {
 
   return (
     <div className="signUpBox">
-      <Card className="signUpCard">
+      <Card
+        className="signUpCard"
+        style={{ height: "300px", marginTop: "-30px" }}
+      >
         <Card.Body className="signUpBody">
           <h2 className="signUpHeader">Password Reset</h2>
           {error && <Alert variant="danger">{error}</Alert>}
@@ -40,7 +43,7 @@ export default function ForgotPassword() {
               <Form.Control
                 className="textInput"
                 type="email"
-                placeholder = "Please enter your St. Mary's Email Address."
+                placeholder="Please enter your St. Mary's Email Address."
                 ref={emailRef}
                 required
               />
@@ -49,13 +52,20 @@ export default function ForgotPassword() {
               Reset Password
             </Button>
           </Form>
-          <div className="w-100 text-center mt-2">
+          <div
+            className="w-100 text-center mt-2"
+            style={{ textAlign: "center" }}
+          >
             <Link to="/login">Log In</Link>
           </div>
+          <div
+            className="w-100 text-center mt-2"
+            style={{ textAlign: "center", paddingTop: "10px" }}
+          >
+            Need an account?
+            <Link to="/signup"> Sign up</Link>
+          </div>
         </Card.Body>
-        <div className="w-100 text-center mt-2">
-          Need an account? <Link to="/signup">Sign up</Link>
-        </div>
       </Card>
     </div>
   );

@@ -81,6 +81,20 @@ function Wishlist() {
 
     console.log("inside filtered");
     console.log(result1);
+    if (result1.length === 0) {
+      return (
+        <div className="pageContent">
+          <h1
+            style={{
+              textAlign: "center",
+            }}
+          >
+            No Items in Wishlist
+          </h1>
+          <Footer />
+        </div>
+      );
+    }
 
     return result1.map((product) => (
       <Link
