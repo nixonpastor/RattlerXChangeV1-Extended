@@ -1,0 +1,63 @@
+.SellerProfileTitle{
+    color: Black;
+    text-align: center;
+}
+
+.SellerDetailContent{
+    display: flex;
+}
+
+.imageSellerInfo{
+    align-items: left;
+}
+
+.SellerImage{
+    height: 300px;
+    width: 300px;
+    margin: 20px;
+}
+
+.SellerDetailProfile{
+    align-content: center;
+}
+
+.SellerNameTitle{
+    text-align: center;
+}
+
+.SellerEmailTitle{
+    text-align: center;
+}
+
+.SellerNoOfProducts{
+    text-align: center;
+}
+
+.SellerButton{
+    text-align: center;
+}
+
+.contactSeller{
+    height: 39px;
+    width: 100%;
+    margin-right: 5px;
+    background-color: #003466;
+    text-decoration: none;
+    border: none;
+    color: white;
+    border-radius: 1px;
+    width: 35%;
+    align-self: center;
+}
+
+
+.SellerInfoCards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 15px;
+}
+
