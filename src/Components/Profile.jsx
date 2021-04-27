@@ -13,8 +13,7 @@ import { useEffect } from "react";
 import axios from "axios";
 
 function Profile(props) {
-
-  console.log(props)
+  console.log(props);
 
   // const uploadedImage = React.useRef(null);
   // const imageUploader = React.useRef(null);
@@ -75,7 +74,7 @@ function Profile(props) {
     setError("");
     try {
       await logout();
-      window.alert("Logout successful.")
+      window.alert("Logout successful.");
       history.push("/login");
     } catch {
       setError("Failed to log out");
@@ -185,7 +184,7 @@ function Profile(props) {
               </Link>
             </li>
             <li className="link">
-              <Link to="/login" onClick={handleLogout} className="profilelink" >
+              <Link to="/login" onClick={handleLogout} className="profilelink">
                 Log Out
               </Link>
               {error && <Alert variant="danger">{error}</Alert>}
@@ -195,15 +194,21 @@ function Profile(props) {
 
         <div className="cards">
           <ul className="ProfileCardsContainer">
-            {products.map((product) =>
-              product.productEmail === currentUser.email ? (
-                <ProfileProductCard
-                  text={product.productName}
-                  value={"$" + product.productPrice}
-                  img={product.productImage}
-                  prodId={product._id}
-                />
-              ) : null
+            {products.length === 0 ? (
+              <h1 style={{ textAlign: "center", paddingLeft: "190px" }}>
+                No Items Listed. Add a product.
+              </h1>
+            ) : (
+              products.map((product) =>
+                product.productEmail === currentUser.email ? (
+                  <ProfileProductCard
+                    text={product.productName}
+                    value={"$" + product.productPrice}
+                    img={product.productImage}
+                    prodId={product._id}
+                  />
+                ) : null
+              )
             )}
           </ul>
         </div>

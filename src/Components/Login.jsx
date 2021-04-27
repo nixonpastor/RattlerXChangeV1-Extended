@@ -27,47 +27,55 @@ export default function Login() {
   }
 
   return (
-   
     <>
       <div>
         <h2 align="center"> Please Login To Proceed </h2>
-      <Card className="signUpCard">
-        <Card.Body className="signUpBody">
-          <h2 className="signUpHeader">Log In</h2>
-          {error && <Alert variant="danger">{error}</Alert>}
-          <Form className="signUpForm" onSubmit={handleSubmit}>
-            <Form.Group className="InputField" id="email">
-              <Form.Label className="emailField">Email</Form.Label>
-              <Form.Control
-                className="textInput"
-                type="email"
-                placeholder = "Please enter your St Mary's Email Address."
-                ref={emailRef}
-                required
-              />
-            </Form.Group>
-            <Form.Group className="InputField" id="password">
-              <Form.Label className="passwordField">Password</Form.Label>
-              <Form.Control
-                className="textInput"
-                type="password"
-                placeholder = "Please enter your Password."
-                ref={passwordRef}
-                required
-              />
-            </Form.Group>
-            <Button disabled={loading} className="w-100-1" type="submit">
-              Log In
-            </Button>
-          </Form>
-          <div className="w-100 text-center mt-2">
-            <Link to="/forgotpassword">Forgot Password?</Link>
-          </div>
-        </Card.Body>
-        <div className="w-100 text-center mt-2">
-          Need an account? <Link to="/signup">Sign up</Link>
-        </div>
-      </Card>
+        <Card
+          className="signUpCard"
+          style={{ height: "350px", padding: "10px" }}
+        >
+          <Card.Body className="signUpBody">
+            <h2 className="signUpHeader">Log In</h2>
+            {error && <Alert variant="danger">{error}</Alert>}
+            <Form className="signUpForm" onSubmit={handleSubmit}>
+              <Form.Group className="InputField" id="email">
+                <Form.Label className="emailField">Email</Form.Label>
+                <Form.Control
+                  className="textInput"
+                  type="email"
+                  placeholder="Please enter your St Mary's Email Address."
+                  ref={emailRef}
+                  required
+                />
+              </Form.Group>
+              <Form.Group className="InputField" id="password">
+                <Form.Label className="passwordField">Password</Form.Label>
+                <Form.Control
+                  className="textInput"
+                  type="password"
+                  placeholder="Please enter your Password."
+                  ref={passwordRef}
+                  required
+                />
+              </Form.Group>
+              <Button disabled={loading} className="w-100-1" type="submit">
+                Log In
+              </Button>
+            </Form>
+            <div
+              className="w-100 text-center mt-2"
+              style={{ textAlign: "center" }}
+            >
+              <Link to="/forgotpassword">Forgot Password?</Link>
+            </div>
+            <div
+              className="w-100 text-center mt-2"
+              style={{ textAlign: "center", paddingTop: "10px" }}
+            >
+              Need an account? <Link to="/signup">Sign up</Link>
+            </div>
+          </Card.Body>
+        </Card>
       </div>
     </>
   );
