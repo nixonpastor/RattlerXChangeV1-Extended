@@ -23,12 +23,14 @@ const upload = multer({
   },
 });
 
+//route to get ALL users
 router.route("/").get((req, res) => {
   User.find()
     .then((users) => res.json(users))
     .catch((err) => res.status(400).json("Error: " + err));
 });
 
+//route to add a USER
 router.route("/addUser").post((req, res) => {
   const firstName = req.body.firstName;
   const lastName = req.body.lastName;
@@ -48,12 +50,14 @@ router.route("/addUser").post((req, res) => {
     .catch((err) => res.status(400).json("Error: " + err));
 });
 
+//Route to get a specific user based on ID
 router.route("/:id").get((req, res) => {
   User.findById(req.params.id)
     .then((user) => res.json(user))
     .catch((err) => res.status(400).json("Error: " + err));
 });
 
+//Route to update user based on ID
 router.route("/update/:id").post(upload.single("photo"), (req, res) => {
   User.findById(req.body.id)
     .then((user) => {

@@ -5,6 +5,7 @@ import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 
 export default function Login() {
+  //set state for login screen
   const emailRef = useRef();
   const passwordRef = useRef();
   const { login } = useAuth();
@@ -15,6 +16,7 @@ export default function Login() {
   async function handleSubmit(e) {
     e.preventDefault();
 
+    //await authentication from firebase to login
     try {
       setError("");
       setLoading(true);
@@ -26,6 +28,7 @@ export default function Login() {
     setLoading(false);
   }
 
+  //return HTML login page
   return (
     <>
       <div>

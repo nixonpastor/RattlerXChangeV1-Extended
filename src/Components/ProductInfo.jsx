@@ -3,8 +3,11 @@ import Footer from "./Footer";
 import "./ProductInfo.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { useAuth } from "../contexts/AuthContext";
 
 function ProductInfo(props) {
+  const { currentUser } = useAuth();
+
   //   console.log(props.location.productProps.productId);
   //   //   const [product, setProduct] = useState(null);
   //   const [isLoading, setLoading] = useState(true);
@@ -40,7 +43,7 @@ function ProductInfo(props) {
         axios
           .get(
             "http://localhost:5000/products/" +
-            props.location.productProps.productId
+              props.location.productProps.productId
           )
           .then((res) => {
             if (isLoading) {
@@ -53,6 +56,23 @@ function ProductInfo(props) {
     }
     getProducts();
   }, [product, isLoading, props.location.productProps.productId]);
+
+  function addToWishlist() {
+    console.log("This is the product");
+    console.log(props);
+    const wishlist = {
+      wishlistProduct: props.location.productProps.productId,
+      wishlistOwner: currentUser.email.toLowerCase(),
+    };
+
+    console.log("This is the wishlist item");
+    console.log(wishlist);
+    axios
+      .post("http://localhost:5000/wishlists/addWishlistItem", wishlist)
+      .then((res) => console.log(res.data));
+
+    window.alert("Item Added to Wishlist.");
+  }
 
   return (
     <div className="pageContent">
@@ -133,7 +153,11 @@ function ProductInfo(props) {
               <div class="divider" />
               <div>
                 <Link to="/wishlist">
-                  <button type="submit" className="wishlistButton">
+                  <button
+                    type="submit"
+                    className="wishlistButton"
+                    onClick={addToWishlist}
+                  >
                     Add to My Wishlist
                     <div class="buttonTextSpace" />
                     <i class="fas fa-heart"></i>

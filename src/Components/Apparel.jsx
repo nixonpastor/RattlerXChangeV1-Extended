@@ -7,6 +7,7 @@ import Card from "./Card";
 import { Link } from "react-router-dom";
 
 function Apparel() {
+  //setting state variables for rendering
   const [products, setProducts] = useState([]);
   const [isLoading, setLoading] = useState(true);
   const [apparel, setApparel] = useState([]);
@@ -19,6 +20,7 @@ function Apparel() {
 
   useEffect(() => {
     function getProducts() {
+      //GET request to get all the products and set the state on load
       axios.get("http://localhost:5000/products/").then((res) => {
         if (isLoading) {
           setProducts(res.data);
@@ -31,6 +33,7 @@ function Apparel() {
     getProducts();
   }, [products, isLoading]);
 
+  //return an message to user if no apparel available
   if (apparel.length === 0 && products.length === 0) {
     return (
       <div className="pageContent">
@@ -52,6 +55,7 @@ function Apparel() {
     setFilter(e.target.value);
   }
 
+  //filter the products to only display apparel
   function filterProducts() {
     products.map((product) => {
       if (product.productCategory === "Apparel") {
@@ -80,6 +84,7 @@ function Apparel() {
     console.log(products);
   }
 
+  //search functionality based on items in apparel
   function filterProductsbySearch() {
     allProducts.map((product) => {
       var productName = product.productName.toLowerCase();
@@ -100,6 +105,7 @@ function Apparel() {
     setTermFilter(e.target.value);
   }
 
+  //return HTMl render of apparel page
   return (
     <div className="pageContent">
       <SearchAndSortRender Title="Apparel" />

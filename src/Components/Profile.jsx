@@ -15,8 +15,6 @@ import axios from "axios";
 function Profile(props) {
   console.log(props);
 
-  // const uploadedImage = React.useRef(null);
-  // const imageUploader = React.useRef(null);
   const history = useHistory();
   //getting the logged in user
   const { currentUser, logout } = useAuth();
@@ -29,6 +27,7 @@ function Profile(props) {
   const [users, setUsers] = useState([]);
   const [user, setUser] = useState([]);
 
+  //get products and users on load and map them to logged in user
   useEffect(() => {
     function getProducts() {
       axios.get("http://localhost:5000/products/").then((res) => {
@@ -70,6 +69,7 @@ function Profile(props) {
     }
   };
   */
+
   async function handleLogout() {
     setError("");
     try {
@@ -80,10 +80,6 @@ function Profile(props) {
       setError("Failed to log out");
     }
   }
-
-  // function Error(){
-  //   window.alert("Logout successful.")
-  // }
 
   return (
     <div className="pageContent">

@@ -7,61 +7,32 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 
 function SellerProfile(props) {
-
-
-  // setting a default user. 
+  // setting a default user.
   const [users, setUsers] = useState([]);
-  // const [users, setUsers] = useState({
-  //   _id: "",
-  //   email: "",
-  //   firstName: "",
-  //   lastName: "",
-  //   phoneNumber: "",
-  //   __v: 0,
-  // });
   const [isSecondLoading, setSecondLoading] = useState(true);
-
-
   const [products, setProduct] = useState([]);
-  // const [products, setProduct] = useState({
-  //   _id: "",
-  //   productName: "No Product Info",
-  //   productPrice: 0,
-  //   productCondition: "No Condition Found",
-  //   productCategory: "No Category Found",
-  //   productDescription: "Null",
-  //   __v: 0,
-  // });
   const [isLoading, setLoading] = useState(true);
   const [user, setUser] = useState([]);
 
   useEffect(() => {
     function getProducts() {
       //getting the products from the database (mongo)
-      axios
-        .get(
-          "http://localhost:5000/products/"
-        )
-        .then((res) => {
-          if (isLoading) {
-            setProduct(res.data);
-            console.log(products);
-            setLoading(false);
-          }
-        });
+      axios.get("http://localhost:5000/products/").then((res) => {
+        if (isLoading) {
+          setProduct(res.data);
+          console.log(products);
+          setLoading(false);
+        }
+      });
 
       //getting the users from the database (mongo)
-      axios
-        .get(
-          "http://localhost:5000/users/"
-        )
-        .then((res) => {
-          if (isSecondLoading) {
-            setUsers(res.data);
-            console.log(users);
-            setSecondLoading(false);
-          }
-        });
+      axios.get("http://localhost:5000/users/").then((res) => {
+        if (isSecondLoading) {
+          setUsers(res.data);
+          console.log(users);
+          setSecondLoading(false);
+        }
+      });
 
       users.map((user) => {
         if (user.email === props.location.productProps.productEmail) {
@@ -70,22 +41,26 @@ function SellerProfile(props) {
         return user;
       });
       console.log(user);
-
     }
     getProducts();
-  }, [products, users, isLoading, isSecondLoading, user, props.location.productProps.productEmail]);
+  }, [
+    products,
+    users,
+    isLoading,
+    isSecondLoading,
+    user,
+    props.location.productProps.productEmail,
+  ]);
 
-  console.log("Check")
-  console.log(users)
-  console.log(products)
-  console.log(props.location.productProps.productEmail)
-
+  console.log("Check");
+  console.log(users);
+  console.log(products);
+  console.log(props.location.productProps.productEmail);
 
   return (
     <div className="pageContent">
       <div>
-        <h1 className="SellerProfileTitle"> Seller's Profile
-        </h1>
+        <h1 className="SellerProfileTitle"> Seller's Profile</h1>
       </div>
       <div className="SellerDetailContent">
         <div className="UserDetails">
@@ -98,8 +73,14 @@ function SellerProfile(props) {
           </div>
 
           <div className="SellerDetailProfile">
-            <h3 className="SellerNameTitle"> {user.firstName} {user.lastName} </h3>
-            <h3 className="SellerEmailTitle"> {props.location.productProps.productEmail} </h3>
+            <h3 className="SellerNameTitle">
+              {" "}
+              {user.firstName} {user.lastName}{" "}
+            </h3>
+            <h3 className="SellerEmailTitle">
+              {" "}
+              {props.location.productProps.productEmail}{" "}
+            </h3>
           </div>
 
           <div className="SellerButton">
@@ -113,15 +94,10 @@ function SellerProfile(props) {
 
         <div>
           <div className="SellerInfoCards">
-            {/*
-            <CardRender text="St. Mary's Shirt" value="$80" />
-            <CardRender text="iPhone 12" value="$800" />
-            <CardRender text="macBook Pro 2020" value="$1200" />
-            <CardRender text="Desk Lamp" value="$100" />
-            */}
             <ul className="ProfileCardsContainer">
               {products.map((product) =>
-                product.productEmail === props.location.productProps.productEmail ? (
+                product.productEmail ===
+                props.location.productProps.productEmail ? (
                   <Card
                     text={product.productName}
                     value={"$" + product.productPrice}

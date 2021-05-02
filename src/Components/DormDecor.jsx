@@ -7,6 +7,7 @@ import Card from "./Card";
 import { Link } from "react-router-dom";
 
 function DormDecor() {
+  //set state variables for dorm decor products
   const [products, setProducts] = useState([]);
   const [isLoading, setLoading] = useState(true);
   const [dormDecor, setDormDecor] = useState([]);
@@ -19,6 +20,7 @@ function DormDecor() {
 
   useEffect(() => {
     function getProducts() {
+      //get request to get all products
       axios.get("http://localhost:5000/products/").then((res) => {
         if (isLoading) {
           setProducts(res.data);
@@ -31,6 +33,7 @@ function DormDecor() {
     getProducts();
   }, [products, isLoading]);
 
+  //display message if no dorm decor available
   if (dormDecor.length === 0 && products.length === 0) {
     return (
       <div className="pageContent">
@@ -52,6 +55,7 @@ function DormDecor() {
     setFilter(e.target.value);
   }
 
+  //filter products only based on category dormdecor
   function filterProducts() {
     setDormDecor([]);
     products.map((product) => {
@@ -79,6 +83,7 @@ function DormDecor() {
     console.log(products);
   }
 
+  //searach by input and by products
   function filterProductsbySearch() {
     allProducts.map((product) => {
       var productName = product.productName.toLowerCase();
@@ -99,6 +104,7 @@ function DormDecor() {
     setTermFilter(e.target.value);
   }
 
+  //return HTML dorm decor page
   return (
     <div className="pageContent">
       <SearchAndSortRender Title="Dorm Decor" />

@@ -7,11 +7,10 @@ import Card from "./Card";
 import { Link } from "react-router-dom";
 
 function Books() {
+  //set state variable for products and books
   const [products, setProducts] = useState([]);
   const [isLoading, setLoading] = useState(true);
   const [books, setBooks] = useState([]);
-  // const books = [];
-
   const [filter, setFilter] = useState("");
   const [searchFilter, setTermFilter] = useState("");
   const [allProducts, setAllProducts] = useState([]);
@@ -21,6 +20,7 @@ function Books() {
 
   useEffect(() => {
     function getProducts() {
+      //get request to get ALL products
       axios.get("http://localhost:5000/products/").then((res) => {
         if (isLoading) {
           setProducts(res.data);
@@ -33,6 +33,7 @@ function Books() {
     getProducts();
   }, [products, isLoading]);
 
+  //return message if no books available
   if (books.length === 0 && products.length === 0) {
     return (
       <div className="pageContent">
@@ -54,6 +55,7 @@ function Books() {
     setFilter(e.target.value);
   }
 
+  //filter products to only display books
   function filterProducts() {
     products.map((product) => {
       if (product.productCategory === "Books") {
@@ -82,6 +84,7 @@ function Books() {
     console.log(products);
   }
 
+  //filter search functionality on input and books
   function filterProductsbySearch() {
     allProducts.map((product) => {
       var productName = product.productName.toLowerCase();
@@ -102,6 +105,7 @@ function Books() {
     setTermFilter(e.target.value);
   }
 
+  //return HTML render of books page
   return (
     <div className="pageContent">
       <SearchAndSortRender Title="Books" />

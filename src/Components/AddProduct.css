@@ -19,7 +19,7 @@
   width: 35%;
 }
 
-.addProductImage{
+.addProductImage {
   height: 450px;
   width: 400px;
 }
@@ -34,34 +34,21 @@
   cursor: pointer;
 }
 
-.productLabels{
+.productLabels {
   display: flex;
   align-content: center;
-  width:700px;
+  width: 700px;
 }
 
-/*
-.productLabels label {
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  margin-left: 30px;
-  flex-direction: row;
-  line-height: 26px;
-  margin-bottom: 10px;
-  justify-content: flex-end;
-}
-*/
-
-.productForm{
+.productForm {
   display: flex;
   flex-direction: column;
   padding: 20px;
-  width:100%;
+  width: 100%;
   margin: 10px;
 }
 
-.addProductInput{
+.addProductInput {
   padding-bottom: 20px;
   display: flex;
   flex-direction: column;
@@ -69,12 +56,6 @@
   margin-top: 10px;
   margin-bottom: 10px;
 }
-
-/*
-.submitButton {
-  margin-left: 337px;
-}
-*/
 
 .submitButton {
   height: 39px;

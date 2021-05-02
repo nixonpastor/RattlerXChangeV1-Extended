@@ -4,9 +4,11 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 
 function WishlistCard(props) {
+  //get current user logged in
   const { currentUser } = useAuth();
 
   function deleteButtonPressed() {
+    //delete specificed product from user wishlist
     axios.get("http://localhost:5000/wishlists/").then((res) => {
       for (var i = 0; i < res.data.length; i++) {
         if (
@@ -24,6 +26,8 @@ function WishlistCard(props) {
       }
     });
   }
+
+  //return wishlist card HTML
   return (
     <li className="CardContainer">
       <figure className="PriceLabel" data-category={props.value}>

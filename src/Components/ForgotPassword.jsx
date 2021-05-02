@@ -5,6 +5,7 @@ import { useAuth } from "../contexts/AuthContext";
 import { Link } from "react-router-dom";
 
 export default function ForgotPassword() {
+  //set state variables for forgot password
   const emailRef = useRef();
   const { resetPassword } = useAuth();
   const [error, setError] = useState("");
@@ -14,6 +15,7 @@ export default function ForgotPassword() {
   async function handleSubmit(e) {
     e.preventDefault();
 
+    //Call to firebase for authentication to reset password
     try {
       setMessage("");
       setError("");
@@ -26,6 +28,7 @@ export default function ForgotPassword() {
     setLoading(false);
   }
 
+  //return Forgot password HTML page
   return (
     <div className="signUpBox">
       <Card

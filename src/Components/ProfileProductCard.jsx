@@ -1,31 +1,32 @@
 import "./ProfileProductCard.css";
 import axios from "axios";
-//import { useHistory } from "react-router-dom";
 
 import { Link, useHistory } from "react-router-dom";
 
 function ProfileProductCard(props) {
-
   const history = useHistory();
 
-  console.log(props)
+  console.log(props);
 
-
-  function deleteButtonPressed(e){
-    console.log("Check")
-    console.log(props)
-    console.log(props.prodId)
+  //api call to delete specific item user listed
+  function deleteButtonPressed(e) {
+    console.log("Check");
+    console.log(props);
+    console.log(props.prodId);
     axios
-      .delete("http://localhost:5000/products/"+ props.prodId, {id:props.prodId})
+      .delete("http://localhost:5000/products/" + props.prodId, {
+        id: props.prodId,
+      })
       .then((res) => console.log(res.data));
 
-    console.log("Check line")
-    window.alert("Product Deleted.")
-    
+    console.log("Check line");
+    window.alert("Product Deleted.");
+
     //history.push("/home");
-    window.location.reload()
+    window.location.reload();
   }
 
+  //return a product card for profile for user logged in
   return (
     <li className="CardContainer">
       <figure className="PriceLabel" data-category={props.value}>
@@ -35,13 +36,15 @@ function ProfileProductCard(props) {
         <h1>{props.text}</h1>
       </div>
       <div className="cardIcons">
-        <Link to={{
-          pathname: "/editProduct",
-          productProps: {
-            productID: props.prodId,
-          },
-        }}
-          className="iconEditProduct">
+        <Link
+          to={{
+            pathname: "/editProduct",
+            productProps: {
+              productID: props.prodId,
+            },
+          }}
+          className="iconEditProduct"
+        >
           <i class="fas fa-pencil-alt"></i>
         </Link>
         <Link to="/home" className="iconTrashCan" onClick={deleteButtonPressed}>

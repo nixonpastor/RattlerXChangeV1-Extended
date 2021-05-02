@@ -6,6 +6,7 @@ import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 
 export default function SignUp() {
+  //set default state for signing up
   const emailRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
@@ -17,17 +18,13 @@ export default function SignUp() {
   const [loading, setLoading] = useState(false);
   const history = useHistory();
 
-  const [userFirstName, setUserFirstName] = useState("");
-  const [userLastName, setUserLastName] = useState("");
-  //const [userEmail, setUserEmail] = useState("");
-  const [userPhoneNumber, setUserPhoneNumber] = useState("");
-  //const [userImage, setProductImage] = useState("");
-
+  //check regex to validate an email
   function validateEmail(email) {
     var regex = /^[\w.+\-]+@mail\.stmarytx\.edu$/;
     return regex.test(email);
   }
 
+  //function to check if the sign up was succesful
   async function handleSubmit(e) {
     e.preventDefault();
     if (passwordRef.current.value !== passwordConfirmRef.current.value) {
@@ -47,20 +44,9 @@ export default function SignUp() {
           phoneNumber: phoneNumberRef.current.value,
         };
 
-        /*
-      // User.append("email", emailRef.current.value);
-      // User.append("firstName", firstNameRef.current.value);
-      // User.append("lastName", lastNameRef.current.value);
-      // User.append("phoneNumber", phoneNumberRef.current.value);
-      */
         axios
           .post("http://localhost:5000/users/addUser", User)
           .then((res) => console.log(res.data));
-
-        //setUserEmail("");
-        // setUserFirstName("");
-        // setUserLastName("");
-        // setUserPhoneNumber("");
 
         history.push("/");
       } catch {
@@ -73,22 +59,7 @@ export default function SignUp() {
     setLoading(false);
   }
 
-  // function onChangeUserEmail(e) {
-  //   setUserEmail(e.target.value);
-  // }
-
-  // function onChangeUserFirstName(e){
-  //   setUserFirstName(e.target.value);
-  // }
-
-  // function onChangeUserLastName(e){
-  //   setUserLastName(e.target.value);
-  // }
-
-  // function onChangeUserPhoneNumber(e){
-  //   setUserPhoneNumber(e.target.value);
-  // }
-
+  //return HTMl page for sign up
   return (
     <>
       <Card className="signUpCard">

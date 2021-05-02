@@ -21,6 +21,7 @@ import LoginScreen from "./Components/LoginScreen";
 import SellerInfo from "./Components/SellerInfo";
 
 function App() {
+  //return the routes of the website
   return (
     <Router>
       <AuthProvider>

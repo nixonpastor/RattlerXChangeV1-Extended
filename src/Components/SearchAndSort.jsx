@@ -1,6 +1,7 @@
 import "./SearchAndSort.css";
 
 function SearchAndSort(props) {
+  //returns heading for categories
   return (
     <li>
       <div className="screenTitle">

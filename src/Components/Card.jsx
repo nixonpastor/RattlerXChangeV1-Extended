@@ -4,8 +4,10 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 
 function Card(props) {
+  //get the current user logged in
   const { currentUser } = useAuth();
 
+  //function to add an item to wishlist for specific user
   function addToWishlist() {
     console.log("This is the product");
     console.log(props);
@@ -16,12 +18,15 @@ function Card(props) {
 
     console.log("This is the wishlist item");
     console.log(wishlist);
+    //post request with specified wishlist item
     axios
       .post("http://localhost:5000/wishlists/addWishlistItem", wishlist)
       .then((res) => console.log(res.data));
 
     window.alert("Item Added to Wishlist.");
   }
+
+  //return wishlist render page HTML
   return (
     <li className="CardContainer">
       <figure className="PriceLabel" data-category={props.value}>

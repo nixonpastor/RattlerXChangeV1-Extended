@@ -9,55 +9,6 @@ import { useAuth } from "../contexts/AuthContext";
 import axios from "axios";
 
 function EditProfile(props) {
-  // ALL OF THIS COMMENT CODE WILL BE IMPLEMENTED LATER
-  // const { currentUser, updatePassword, reauthenticate } = useAuth();
-  // const [error, setError] = useState("");
-  // const [message, setMessage] = useState("");
-  // const [loading, setLoading] = useState(false);
-  // const newPasswordRef = useRef();
-  // const passwordCurrentRef = useRef();
-  // const history = useHistory();
-
-  // async function handleSubmit(e) {
-  //   e.preventDefault();
-  // if (currentUser.password !== passwordCurrentRef.current.value) {
-  //   return setError("Invalid Current Password");
-  // }
-  // if (passwordRef.current.value !== passwordCurrentRef.current.value) {
-  //   return setError("Passwords do not match");
-  // }
-  //  reauthenticate(passwordCurrentRef.current.value)
-  //     .then(() => {
-  //       updatePassword(newPasswordRef.current.value)
-  //         .then(() => {
-  //           setMessage("Updated Password");
-  //           history.push("/editprofile");
-  //         })
-  //         .catch((error) => {
-  //           setError("Problem reseting your password");
-  //         });
-  //     })
-  //     .catch((error) => {
-  //       setError(error.message);
-  //     });
-
-  // const promises = [];
-  // setLoading(true);
-  // setError("");
-  // if (newPasswordRef.current.value) {
-  //   promises.push(updatePassword(newPasswordRef.current.value));
-  // }
-
-  // Promise.all(promises)
-  //   .then(() => {
-  //     history.push("/profile");
-  //   })
-  //   .catch(() => {
-  //     setError("Failed to update password");
-  //   })
-  //   .finally(() => setLoading(false));
-  // }
-
   const { currentUser, logout } = useAuth();
   const [error, setError] = useState("");
   const [profileImage, setProfileImage] = useState("defaultProfilePicture.png");

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 
+//Returns HTML version to render Navbar component
 function Navbar() {
   return (
     <nav className="navbar">

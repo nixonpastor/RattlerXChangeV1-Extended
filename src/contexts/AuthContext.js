@@ -28,15 +28,6 @@ export function AuthProvider({ children }) {
     return auth.sendPasswordResetEmail(email);
   }
 
-  //TO DO: Figure out how to update password in edit profile
-  // function updatePassword(password) {
-  //   return currentUser.updatePassword(password);
-  // }
-  // function reauthenticate(password) {
-  //   const cred = auth.EmailAuthProvider.credential(currentUser.email, password);
-  //   return currentUser.reauthenticateWithCredential(cred);
-  // }
-
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       //setting current user
@@ -53,9 +44,8 @@ export function AuthProvider({ children }) {
     login,
     logout,
     resetPassword,
-    // updatePassword,
-    // reauthenticate,
   };
+  //return a provider for firebase
   return (
     <AuthContext.Provider value={value}>
       {!loading && children}

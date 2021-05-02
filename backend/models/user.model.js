@@ -1,3 +1,4 @@
+//schema for a user
 const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;

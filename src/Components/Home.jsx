@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import "./SearchAndSort.css";
 
 function Home() {
+  //set home variable default state
   const [products, setProducts] = useState([]);
   const [isLoading, setLoading] = useState(true);
   const [filter, setFilter] = useState("");
@@ -20,6 +21,7 @@ function Home() {
 
   useEffect(() => {
     function getProducts() {
+      //get request for all products
       axios.get("http://localhost:5000/products/").then((res) => {
         if (isLoading) {
           setProducts(res.data);
@@ -37,6 +39,7 @@ function Home() {
     setFilter(e.target.value);
   }
 
+  //filter products based on user input
   function filterProducts() {
     allProducts.map((product) => {
       if (filter === "") {
@@ -55,6 +58,7 @@ function Home() {
     console.log(products);
   }
 
+  //search for products based on user input phrase
   function filterProductsbySearch() {
     allProducts.map((product) => {
       var productName = product.productName.toLowerCase();
@@ -75,6 +79,7 @@ function Home() {
     setTermFilter(e.target.value);
   }
 
+  //return HTML home page
   return (
     <div className="pageContent">
       <SearchAndSort Title="Main Menu" />

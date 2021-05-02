@@ -7,6 +7,7 @@ import Card from "./Card";
 import { Link } from "react-router-dom";
 
 function Electronics() {
+  //set state variables for Electronics
   const [products, setProducts] = useState([]);
   const [isLoading, setLoading] = useState(true);
   const [electronics, setElectronics] = useState([]);
@@ -19,6 +20,7 @@ function Electronics() {
 
   useEffect(() => {
     function getProducts() {
+      //get request for all products
       axios.get("http://localhost:5000/products/").then((res) => {
         if (isLoading) {
           setProducts(res.data);
@@ -31,6 +33,7 @@ function Electronics() {
     getProducts();
   }, [products, isLoading]);
 
+  //display no electronics available page
   if (electronics.length === 0 && products.length === 0) {
     return (
       <div className="pageContent">
@@ -52,6 +55,7 @@ function Electronics() {
     setFilter(e.target.value);
   }
 
+  //filter electronics from products
   function filterProducts() {
     setElectronics([]);
     products.map((product) => {
@@ -80,6 +84,7 @@ function Electronics() {
     console.log(products);
   }
 
+  //search functionality on products
   function filterProductsbySearch() {
     allProducts.map((product) => {
       var productName = product.productName.toLowerCase();
@@ -100,6 +105,7 @@ function Electronics() {
     setTermFilter(e.target.value);
   }
 
+  //return HTML page of Electronics
   return (
     <div className="pageContent">
       <SearchAndSortRender Title="Electronics" />

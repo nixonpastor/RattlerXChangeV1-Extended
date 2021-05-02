@@ -1,3 +1,4 @@
+//Schema for a wishlist item
 const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;

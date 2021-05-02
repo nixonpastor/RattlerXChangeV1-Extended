@@ -9,10 +9,10 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 
 function Wishlist() {
+  //Setting state variables for arrays and loading
   const [wishlist, setWishlist] = useState([]);
   const [products, setProducts] = useState([]);
   const [userWishlist, setUserWishlist] = useState([]);
-
   const [isLoading, setLoading] = useState(true);
   const [isLoading2, setLoading2] = useState(true);
   const [isLoading3, setLoading3] = useState(true);
@@ -21,6 +21,7 @@ function Wishlist() {
   const { currentUser } = useAuth();
   const [newWishlist, setNewWishlist] = useState([]);
 
+  //On load get all products from wishlist
   useEffect(getWishlistProducts, [
     wishlist,
     products,
@@ -37,6 +38,7 @@ function Wishlist() {
 
     console.log(wishlist);
 
+    //GET Request to get products from wishlist
     axios.get("http://localhost:5000/products/").then((res) => {
       if (isLoading3) {
         setProducts(res.data);
@@ -44,6 +46,7 @@ function Wishlist() {
       }
     });
 
+    //looping through wishlist to find current logged in user
     for (var i = 0; i < wishlist.length; i++) {
       if (wishlist[i].wishlistOwner === currentUser.email) {
         newWishlist.push(wishlist[i]);
@@ -52,6 +55,7 @@ function Wishlist() {
     setNewWishlist(newWishlist);
     console.log("this is user wishlist");
     console.log(newWishlist);
+    //Getting wishlist products for specific user
     for (var j = 0; j < newWishlist.length; j++) {
       axios
         .get(
@@ -81,6 +85,7 @@ function Wishlist() {
 
     console.log("inside filtered");
     console.log(result1);
+    //Return a message to user when no items in wishlist
     if (result1.length === 0) {
       return (
         <div className="pageContent">
@@ -91,11 +96,11 @@ function Wishlist() {
           >
             No Items in Wishlist
           </h1>
-          <Footer />
         </div>
       );
     }
 
+    //map through all products from wishlist
     return result1.map((product) => (
       <Link
         style={{
@@ -119,6 +124,7 @@ function Wishlist() {
     ));
   }
 
+  //return the wishlist page
   return (
     <div className="pageContent">
       <navbar />
